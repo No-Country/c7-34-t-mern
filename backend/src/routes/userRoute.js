@@ -15,6 +15,7 @@ router.post("/users", async (req, res) => {
     .save()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }))
+
 })
 
 // get all users
@@ -23,9 +24,10 @@ router.get("/users", (req, res) => {
     .find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }))
+
 })
 
-// get user
+// get user by id
 router.get("/users/:id", (req, res) => {
   const { id } = req.params
   userSchema
@@ -33,6 +35,7 @@ router.get("/users/:id", (req, res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }))
 })
+
 
 // update an user
 router.put("/users/:id", (req, res) => {
@@ -52,4 +55,5 @@ router.delete("/users/:id", (req, res) => {
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }))
 })
+
 module.exports = router
