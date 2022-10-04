@@ -1,5 +1,5 @@
-import mongoose from "mongoose"
-import dotenv from "dotenv"
+const mongoose = require("mongoose")
+const dotenv = require("dotenv") 
 const passportLocalMongoose = require("passport-local-mongoose")
 dotenv.config()
 
