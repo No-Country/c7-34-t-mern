@@ -7,7 +7,7 @@
     "devStart": "nodemon src/server.js",
     "start": "node src/server.js"
   },
-  "author": "JhonnyCalvo",
+  "author": "JhonnyCalvo MiguelBriceño",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

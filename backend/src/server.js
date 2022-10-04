@@ -3,23 +3,23 @@ if (process.env.NODE !== "production") {
 }
 
 const express = require("express")
-const bodyParser = require('body-parser'); // parser middleware
-const jwt = require('jsonwebtoken');
+const bodyParser = require("body-parser") // parser middleware
+const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 
-const flash = require("express-flash") // 
+const flash = require("express-flash") //
 const session = require("express-session") // session middleware
 
-const userRoute = require("./routes/userRoute")//
+const userRoute = require("./routes/userRoute") //
 const userSchema = require("./models/userSchema")
-const config = require('./configs/config')
-const verifyToken = require('./validateToken')
-const verifyNoToken = require('./validateNoToken')
+const config = require("./configs/config")
+const verifyToken = require("./validateToken")
+const verifyNoToken = require("./validateNoToken")
 
 const app = express()
-app.set('llave', config.llave);
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.set("llave", config.llave)
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 PORT = 3000
 app.listen(PORT)
 
@@ -34,8 +34,8 @@ app.use(
     resave: true,
     saveUninitialized: true,
     cookie: { secure: false },
-  }
-  ))
+  })
+)
 
 //verification user password
 authUser = async (req, res, next) => {
@@ -43,15 +43,17 @@ authUser = async (req, res, next) => {
   console.log(`Value of "User" in authUser function ----> ${user}`)
   try {
     if (user) {
-      const password = await bcrypt.compare(req.body.password, user.password);
+      const password = await bcrypt.compare(req.body.password, user.password)
       console.log(`is Password?: ${password}`)
       if (password) {
-
-        const token = jwt.sign({
-          name: user.name,
-          id: user._id
-        }, process.env.TOKEN_SECRET,
-          { expiresIn: "1h" })
+        const token = jwt.sign(
+          {
+            name: user.name,
+            id: user._id,
+          },
+          process.env.TOKEN_SECRET,
+          { expiresIn: "1h" }
+        )
 
         // res.header('auth-token', token)
         //   .json({
@@ -61,18 +63,15 @@ authUser = async (req, res, next) => {
 
         console.log(token)
         next()
-
       } else {
-        res.render("login.ejs", { messages : 'Contrase\361a Incorrecta' })
+        res.render("login.ejs", { messages: "Contrase\361a Incorrecta" })
       }
-
     } else {
-      res.render("login.ejs",{ messages : "Usuario No Registrado"})
-
+      res.render("login.ejs", { messages: "Usuario No Registrado" })
     }
   } catch (error) {
-    console.log(error);
-    res.status(500).send("Internal Server error Occured");
+    console.log(error)
+    res.status(500).send("Internal Server error Occured")
   }
 }
 
@@ -82,24 +81,19 @@ app.get("/", verifyToken, (req, res) => {
 })
 
 //login
-app.get("/login",verifyNoToken,(req, res) => {
+app.get("/login", verifyNoToken, (req, res) => {
   res.render("login.ejs", { messages: "" })
 })
 
-app.post(
-  "/login",
-  authUser,
-  (req, res) => {
-    console.log('app post............')
-    res.redirect('/index')
-  }
-)
+app.post("/login", authUser, (req, res) => {
+  console.log("app post............")
+  res.redirect("/index")
+})
 
 //index
 app.get("/index", (req, res) => {
   res.render("index.ejs", { name: "Usuario" })
 })
-
 
 //register
 app.get("/register", verifyNoToken, (req, res) => {
@@ -125,7 +119,6 @@ app.post("/register", async (req, res) => {
 
     console.log(typeof user)
     console.log(user)
-
   } catch {
     res.redirect("/register")
   }
