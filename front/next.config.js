@@ -4,4 +4,11 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = nextConfig
+const compiler = {
+  compiler: {
+    removeConsole: {
+      exclude: ["log"],
+    },
+  },
+}
+;(module.exports = nextConfig), compiler
