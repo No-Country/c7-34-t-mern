@@ -52,12 +52,12 @@ app.get("/login", verifyNoToken, (req, res) => {
 })
 
 app.post("/login", authUser, (req, res) => {
-  console.log("app post............")
+  console.log("Login Sucessfull")
   res.redirect("/index")
 })
 
 //index
-app.get("/index", (req, res) => {
+app.get("/index",verifyToken, (req, res) => {
   res.render("index.ejs", { name: "Usuario" })
 })
 
@@ -89,13 +89,8 @@ app.post("/register", async (req, res) => {
     res.redirect("/register")
   }
 })
-//delete
-app.delete("/logout", (req, res) => {
-  req.logout(function (err) {
-    if (err) {
-      return next(err)
-    }
-    console.log("log out")
-    res.redirect("/login")
-  })
+
+app.post('/logout',verifyToken ,(req, res) => {
+  req.session.token = null;
+  res.redirect('/login')
 })
