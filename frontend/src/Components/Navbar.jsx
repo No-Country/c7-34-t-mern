@@ -1,6 +1,5 @@
-import React from "react"
-import logo from "assets/AppIcon.png"
-import Button from "./Button"
+import logo from "/assets/AppIcon.png"
+import Button from "../Utils/Button"
 
 function Navbar() {
   let links = [
