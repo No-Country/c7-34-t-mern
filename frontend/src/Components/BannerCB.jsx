@@ -14,11 +14,11 @@ function BannerCB() {
         </div>
       </section>
       <section className="flex flex-col justify-center items-center sm:items-left gap-8 sm:gap-6 px-8 md:px-0 pr-12 md:pr-20 ">
-        <article className="w-full font-general font-normal text-justify text-title2 md:text-title3 leading-lh-9 md:leading-lh-8">
-          <span className="font-general font-semibold text-[3rem] text-primary-light">
+        <article className="w-full font-general font-normal text-justify text-headline md:text-title3 leading-lh-6 md:leading-lh-9">
+          <span className="font-general font-semibold text-bold_title sm:text-[3rem] text-primary-light">
             Coin
           </span>
-          <span className="font-general font-semibold text-[3rem] text-secondary-light px-4">
+          <span className="font-general font-semibold text-bold_title sm:text-[3rem] text-secondary-light px-4">
             Book
           </span>
           es el mejor aliado para controlar tus <b>finanzas</b>, con tan solo
@@ -29,7 +29,7 @@ function BannerCB() {
         <div className="">
           <a
             href=""
-            className="bg-primary-light px-6 py-4 sm:px-4 sm:py-2 rounded-md shadow-xl text-white font-general font-semibold text-title3"
+            className="bg-primary-light px-4 py-2 rounded-md shadow-xl text-white font-general font-semibold text-title3"
           >
             ¡Empieza ahora!
           </a>
