@@ -1,7 +1,5 @@
 import React from "react"
 
-function utils() {
+export default function utils() {
   return <div>utils</div>
 }
-
-export default utils
