@@ -3,7 +3,7 @@ import CBanner from "/assets/Coinbook-1.svg"
 
 function BannerCB() {
   return (
-    <main className="grid md:grid-cols-2 gap-8 py-12 sm:py-20">
+    <main className="grid md:grid-cols-2 gap-8 py-20 sm:py-20 bg-red-100">
       <section className="bg-bgBanner bg-no-repeat bg-contain bg-center">
         <div className="flex w-full justify-center">
           <img
