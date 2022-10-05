@@ -1,7 +1,13 @@
-import React from "react"
+import Navbar from "../Components/Navbar"
+import BannerCB from "../Components/BannerCB"
 
 function Home() {
-  return <div>Home</div>
+  return (
+    <>
+      <Navbar />
+      <BannerCB />
+    </>
+  )
 }
 
 export default Home
