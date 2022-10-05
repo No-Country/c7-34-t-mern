@@ -45,7 +45,7 @@ module.exports = {
           'light': '#339963',
           'base': '#379563',
           'dark': '#2C774F',
-          'darker': '#205639'
+          'darker': '#66AC88'
         },
         secondary: {
           'dye': '#FFC3AD',
