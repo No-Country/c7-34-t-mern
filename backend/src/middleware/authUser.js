@@ -17,14 +17,11 @@ authUser = async (req, res, next) => {
             id: user._id,
           },
           process.env.TOKEN_SECRET,
-          { expiresIn: "1h" }
+          {
+            expiresIn: 86400,
+          }
         )
-
-        // res.header('auth-token', token)
-        //   .json({
-        //     error: null,
-        //     data: { token }
-        //   })
+        req.session.token = token;
 
         console.log(token)
         next()
