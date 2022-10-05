@@ -3,8 +3,8 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontSize: {
-      "bold-title": "2.13rem",
-      "big-title": "2.13rem",
+      bold_title: "2.13rem",
+      big_title: "2.13rem",
       title1: "1.75rem",
       title2: "1.38rem",
       title3: "1.25rem",
@@ -61,6 +61,9 @@ module.exports = {
           white: "#FFFFFF",
           black: "#000000",
         },
+      },
+      backgroundImage: {
+        bgBanner: "url('./assets/Fondo.svg')",
       },
     },
   },
