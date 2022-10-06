@@ -3,7 +3,7 @@ import CBanner from "/assets/Coinbook-1.svg"
 
 function BannerCB() {
   return (
-    <main className="grid md:grid-cols-2 gap-8 py-12 sm:py-20">
+    <main className="grid md:grid-cols-2 gap-8 pt-32 pb-12 sm:pb-20 sm:pt-40">
       <section className="bg-bgBanner bg-no-repeat bg-contain bg-center">
         <div className="flex w-full justify-center">
           <img
@@ -13,8 +13,8 @@ function BannerCB() {
           />
         </div>
       </section>
-      <section className="flex flex-col justify-center items-center sm:items-left gap-8 sm:gap-6 px-8 md:px-0 pr-12 md:pr-20 ">
-        <article className="w-full font-general font-normal text-justify text-headline md:text-title3 leading-lh-6 md:leading-lh-9">
+      <section className="flex flex-col justify-center items-start sm:items-left gap-10 px-8 md:px-0 pr-12 md:pr-20 ">
+        <article className="w-full font-general font-normal text-justify text-headline leading-lh-7 sm:leading-lh-8 md:text-left md:text-title3 md:leading-lh-9">
           <span className="font-general font-semibold text-bold_title sm:text-[3rem] text-primary-light">
             Coin
           </span>
@@ -26,10 +26,10 @@ function BannerCB() {
           dividir cuentas con tus amigos. todo lo que quieras controlar nosotros
           <b> te ayudamos</b>
         </article>
-        <div className="">
+        <div>
           <a
             href=""
-            className="bg-primary-light px-4 py-2 rounded-md shadow-xl text-white font-general font-semibold text-title3"
+            className="bg-primary-light px-4 py-3 rounded-md shadow-xl text-white font-general font-semibold text-title3"
           >
             ¡Empieza ahora!
           </a>
