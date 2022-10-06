@@ -64,6 +64,7 @@ module.exports = {
       },
       backgroundImage: {
         bgBanner: "url('./assets/Fondo.svg')",
+        bgBanner1: "url('./assets/Fondo1.svg')",
       },
     },
   },
