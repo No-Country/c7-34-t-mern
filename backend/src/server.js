@@ -9,6 +9,7 @@ const bcrypt = require("bcrypt")
 
 const flash = require("express-flash") //
 const session = require("express-session") // session middleware
+const cors = require("cors");
 
 const userRoute = require("./routes/userRoute") //
 const userSchema = require("./models/userSchema")
@@ -16,6 +17,7 @@ const config = require("./configs/config")
 const authUser = require("./middleware/authUser")
 const verifyToken = require("./validateToken")
 const verifyNoToken = require("./validateNoToken")
+const testAPIRouter = require("./routes/testAPI") // requiere to send API
 const connectDB = require("./configs/db")
 connectDB()
 
@@ -24,9 +26,10 @@ app.set("llave", config.llave)
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-PORT = 3000
+PORT = 4000
 app.listen(PORT)
 
+app.use(cors())
 app.set("view-engine", "ejs")
 app.use(express.json())
 app.use("/login", userRoute)
@@ -40,6 +43,9 @@ app.use(
     cookie: { secure: false },
   })
 )
+
+//API
+app.use("/testAPI", testAPIRouter);
 
 //user homepage
 app.get("/", verifyToken, (req, res) => {
@@ -94,3 +100,5 @@ app.post('/logout',verifyToken ,(req, res) => {
   req.session.token = null;
   res.redirect('/login')
 })
+
+module.exports = app
