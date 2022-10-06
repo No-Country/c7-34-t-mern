@@ -2,9 +2,9 @@ import appImg from "/assets/cbapp.svg"
 
 function Tutorial() {
   return (
-    <main className="grid md:grid-cols-2 gap-4 py-12 sm:py-20">
-      <section className="flex flex-col justify-center items-center sm:items-left gap-8 sm:gap-6 px-8 md:px-0 pr-12 md:pr-20 ">
-        <h1 className="font-general font-semibold text-bold_title">
+    <main className="grid md:grid-cols-2 gap-2 py-12 sm:py-20 mx-auto">
+      <section className="max-w-7xl flex flex-col justify-center items-start px-24 md:px-0 gap-6 sm:gap-10 md:pl-24">
+        <h1 className="font-general font-semibold text-bold_title text-left">
           ¿Como funciona?
         </h1>
         <div className="flex flex-col gap-4">
@@ -31,17 +31,17 @@ function Tutorial() {
             Empieza ahorrar con distintos planes
           </span>
           <span className="font-general font-normal text-headline">
-            Conoce planesde ahorro que haran el ahorro supersencillo.con las
+            Conoce planesde ahorro que haran el ahorro supersencillo con las
             notificaciones nunca se te olvidara reservar ese dinero.
           </span>
         </div>
       </section>
-      <section className="bg-bgBanner1 bg-no-repeat bg-contain bg-right-bottom backdrop-blur-lg">
-        <div className="flex w-full justify-center">
+      <section className="bg-bgBanner1 bg-no-repeat bg-contain bg-right-bottom hidden md:block lg:w-9/1">
+        <div className="flex w-full justify-center items-center">
           <img
             src={appImg}
             alt="CB-Banner"
-            className="w-[20rem] md:w-[25rem]"
+            className="hidden md:block md:h-[40vh] lg:w-9/12"
           />
         </div>
       </section>
