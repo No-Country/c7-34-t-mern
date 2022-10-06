@@ -13,21 +13,21 @@ function Navbar() {
   ]
 
   return (
-    <div className="shadow-sm w-full top-0 left-0">
-      <div className="md:flex items-center justify-between  bg-primary-dark py-2 md:px-10 px-7">
-        <div className="font-bold text-title2 cursor-pointer flex items-center font-title">
-          <img className="mr-1  w-20 h-20" src={logo} alt="Logo" />
-        </div>
-        <div
+    <section className="shadow-sm w-full top-0 left-0 fixed">
+      <div className="md:flex items-center justify-between bg-primary-dark py-2 md:px-10 px-7">
+        <span className="font-bold text-title2 cursor-pointer flex items-center font-title">
+          <img className="mr-1 w-20 h-20" src={logo} alt="Logo" />
+        </span>
+        <button
           onClick={() => setOpen(!open)}
-          className="text-big_title absolute right-8 top-6 cursor-pointer md:hidden"
+          className="text-big_title absolute right-8 top-6 cursor-pointer md:hidden text-white"
         >
           <ion-icon name={open ? "close" : "menu"}></ion-icon>
-        </div>
+        </button>
         <ul
           className={`md:flex md:items-center cursor-pointer md:mb-0 mb-12 absolute md:static bg-primary-dark md:z-auto z-[-1] left-0 w-full md:w-auto
-      md:pl-0 pl-9 transition-all duration-700 ease-in ${
-        open ? "top-20 opacity-100" : "top-[-490px]"
+      md:pl-0 pl-9 transition-all duration-500 ease-in ${
+        open ? "top-20 opacity-100 z-10 pb-6" : "top-[-490px]"
       } `}
         >
           {links.map((link) => (
@@ -43,7 +43,7 @@ function Navbar() {
           <Button>Crear Cuenta</Button>
         </ul>
       </div>
-    </div>
+    </section>
   )
 }
 
