@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc"
 
 function SignIn() {
   return (
-    <main className="h-screen flex">
+    <main className="h-full min-h-screen flex">
       <section className="relative w-[40vw] hidden md:block">
         <div className="absolute -z-10 bg-gradient-to-b from-[#ff7b4c4c] via-[#3795634c] to-[#0000004c] h-full w-full" />
         <img
@@ -28,7 +28,7 @@ function SignIn() {
         </aside>
       </section>
 
-      <section className="grid gap-12 justify-center w-full md:w-[60vw] py-24 px-2 bg-slate-200">
+      <section className="grid gap-8 sm:gap-12 justify-center w-full md:w-[60vw] py-[15%] sm:py-32 px-3 bg-slate-200">
         <aside className="flex flex-col gap-14">
           <div className="flex flex-col gap-2 items-center justify-center">
             <h1 className="font-bold font-general text-big_title md:text-[3.5rem]">
@@ -72,7 +72,10 @@ function SignIn() {
             </div>
             <div className="flex justify-between mt-6">
               <span className="flex justify-center items-center gap-2">
-                <input className="bg-inherit cursor-pointer" type="checkbox" />
+                <input
+                  className="accent-primary-base cursor-pointer"
+                  type="checkbox"
+                />
                 <p className="font-general font-semibold text-legend2">
                   Recordarme al ingresar
                 </p>
