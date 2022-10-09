@@ -1,4 +1,4 @@
-import { Form, TitleForm } from "./Form"
+import { Form, TitleForm } from "../../../Components/Login/Form"
 
 function Rightside() {
   return (
