@@ -1,6 +1,4 @@
-import Navbar from "../Components/Navbar"
-import BannerCB from "../Components/BannerCB"
-import Tutorial from "../Components/Tutorial"
+import { BannerCB, Navbar, Tutorial } from "../Components"
 
 function Home() {
   return (

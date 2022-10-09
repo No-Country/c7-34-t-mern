@@ -1,15 +1,16 @@
-import React, { useState } from "react"
-import logo from "/assets/AppIcon.svg"
-import Button from "../Utils/Button"
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import logo from "../../../assets/AppIcon.svg"
+import Button from "./Button"
 
 function Navbar() {
   const [open, setOpen] = useState(false)
 
   const links = [
-    { name: "Quienes Somos", link: "/" },
-    { name: "Como Funciona", link: "/" },
-    { name: "Beneficios", link: "/" },
-    { name: "Iniciar Sesión", link: "/" },
+    { name: "Beneficios", link: "#benefits" },
+    { name: "Como Funciona", link: "#tutorial" },
+    { name: "Quienes Somos", link: "#about" },
+    { name: "Iniciar Sesión", link: "/login" },
   ]
 
   return (
@@ -25,22 +26,27 @@ function Navbar() {
           <ion-icon name={open ? "close" : "menu"}></ion-icon>
         </button>
         <ul
-          className={`md:flex md:items-center cursor-pointer md:mb-0 mb-12 absolute md:static bg-primary-dark md:z-auto z-[-1] left-0 w-full md:w-auto
+          className={`w-full flex flex-col gap-6 md:flex-row md:justify-end md:gap-6 pt-6 md:pt-0 md:items-center cursor-pointer md:mb-0 mb-12 absolute md:static bg-primary-dark md:z-auto z-[-1]
       md:pl-0 pl-9 transition-all duration-500 ease-in ${
         open ? "top-20 opacity-100 z-10 pb-6" : "top-[-490px]"
       } `}
         >
           {links.map((link) => (
-            <li key={link.name} className="md:ml-8 text-body md:my-0 my-7">
-              <a
-                href={link.links}
+            <li
+              key={link.name}
+              className="font-general font-normal text-call text-white lg:text-body"
+            >
+              <Link
+                to={link.link}
                 className="text-white hover:text-gray-300 duration-500"
               >
                 {link.name}
-              </a>
+              </Link>
             </li>
           ))}
-          <Button>Crear Cuenta</Button>
+          <Link to={"/register"}>
+            <Button>Crear Cuenta</Button>
+          </Link>
         </ul>
       </div>
     </section>
