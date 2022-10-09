@@ -1,6 +1,6 @@
 function TutorialText() {
   return (
-    <section className="max-w-7xl flex flex-col justify-center items-start px-24 md:px-0 gap-6 sm:gap-10 md:pl-24">
+    <section className="max-w-7xl flex flex-col justify-center items-start px-[10%] sm:px-24 md:px-0 gap-6 sm:gap-10 md:pl-24">
       <h1 className="font-general font-semibold text-bold_title text-left">
         ¿Como funciona?
       </h1>
