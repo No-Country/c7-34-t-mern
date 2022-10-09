@@ -1,5 +1,5 @@
-import logo from "/assets/AppIcon.svg"
-import picSignIn from "/assets/siginpic.svg"
+import logo from "../../assets/AppIcon.svg"
+import picSignIn from "../../assets/siginpic.svg"
 
 function Leftside() {
   return (
