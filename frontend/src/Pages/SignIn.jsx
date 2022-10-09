@@ -1,4 +1,4 @@
-import { Leftside, Rightside } from "."
+import { Leftside, Rightside } from "../Components"
 
 function SignIn() {
   return (
