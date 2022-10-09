@@ -1,6 +1,6 @@
 function Button({ children }) {
   return (
-    <button className="bg-primary-darker text-white py-2 px-6 rounded md:ml-8 hover:bg-primary-dye duration-500">
+    <button className="bg-primary-base text-white py-2 px-6 rounded hover:bg-primary-darker duration-500">
       {children}
     </button>
   )
