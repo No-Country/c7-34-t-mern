@@ -1,6 +1,6 @@
 import { Form, TitleForm } from "./Form"
 
-function Rightside() {
+function RightsideLogin() {
   return (
     <>
       <TitleForm />
@@ -9,4 +9,4 @@ function Rightside() {
   )
 }
 
-export default Rightside
+export default RightsideLogin
