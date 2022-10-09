@@ -1,7 +1,7 @@
 import logo from "@/assets/AppIcon.svg"
 import picSignIn from "@/assets/siginpic.svg"
 
-function Leftside() {
+function LeftsideLogin() {
   return (
     <section className="relative w-[40vw] hidden md:block">
       <div className="absolute -z-10 bg-gradient-to-b from-[#ff7b4c4c] via-[#3795634c] to-[#0000004c] h-full w-full" />
@@ -28,4 +28,4 @@ function Leftside() {
   )
 }
 
-export default Leftside
+export default LeftsideLogin
