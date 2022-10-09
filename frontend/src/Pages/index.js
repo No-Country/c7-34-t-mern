@@ -1,0 +1,7 @@
+export * from "./Components"
+export { default as Home } from "./Home"
+export { default as Form } from "./Login/Form/Form"
+export { default as TitleForm } from "./Login/Form/TitleForm"
+export { default as Leftside } from "./Login/Leftside"
+export { default as Rightside } from "./Login/Rightside"
+export { default as SignIn } from "./SignIn"
