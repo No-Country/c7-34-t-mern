@@ -1,4 +1,4 @@
-import appImg from "../../../assets/cbapp.svg"
+import appImg from "@/assets/cbapp.svg"
 
 function TutorialBg() {
   return (

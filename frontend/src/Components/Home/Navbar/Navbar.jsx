@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import logo from "../../../assets/AppIcon.svg"
+import logo from "@/assets/AppIcon.svg"
 import Button from "./Button"
 
 function Navbar() {

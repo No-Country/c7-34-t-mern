@@ -1,4 +1,4 @@
-import CBanner from "../../../assets/Coinbook-1.svg"
+import CBanner from "@/assets/Coinbook-1.svg"
 
 function BannerImg() {
   return (
