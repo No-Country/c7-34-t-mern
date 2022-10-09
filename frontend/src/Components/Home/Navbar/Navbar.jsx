@@ -1,17 +1,11 @@
+import logo from "@/assets/AppIcon.svg"
+import { links } from "@/helpers"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import logo from "@/assets/AppIcon.svg"
 import Button from "./Button"
 
 function Navbar() {
   const [open, setOpen] = useState(false)
-
-  const links = [
-    { name: "Beneficios", link: "#benefits" },
-    { name: "Como Funciona", link: "#tutorial" },
-    { name: "Quienes Somos", link: "#about" },
-    { name: "Iniciar Sesión", link: "/login" },
-  ]
 
   return (
     <section className="shadow-sm w-full top-0 left-0 fixed">
