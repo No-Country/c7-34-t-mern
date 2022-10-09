@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import { useState } from "react"
+import Button from "./Button"
+
 import logo from "/assets/AppIcon.svg"
-import Button from "../Utils/Button"
 
 function Navbar() {
   const [open, setOpen] = useState(false)
