@@ -1,3 +1,3 @@
-export * from "./Form"
-export { default as Leftside } from "./Leftside"
-export { default as Rightside } from "./Rightside"
+export * from "./Components/Form"
+export * from "./Components"
+export { default as SignIn } from "./SignIn"
