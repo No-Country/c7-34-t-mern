@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Form() {
   return (
     <aside>
@@ -51,12 +53,12 @@ function Form() {
         <p className="text-legend1 md:text-subtitle font-semibold">
           ¿Aún no tienes una cuenta?{" "}
         </p>
-        <a
-          href=""
+        <Link
+          to={"/register"}
           className="font-general font-bold text-legend1 md:text-subtitle text-black cursor-pointer"
         >
           ¡Crea una cuenta gratis aquí!
-        </a>
+        </Link>
       </div>
     </aside>
   )
