@@ -1,13 +1,51 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 function Form() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    //alert("User Added")
+    const userData = {
+      email: email,
+      password: password,
+    }
+
+    try {
+      const add = await fetch("http://localhost:4000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      }).then((res) => {
+        return res.json()
+      })
+
+      console.log(add)
+    } catch (err) {
+      console.error()
+    }
+  }
+
   return (
     <aside>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-6">
           <label className="text-footer font-semibold text-[#8E9093] tracking-wide">
             Email
             <input
+              onChange={handleEmail}
               className="w-full text-call text-black py-2 bg-inherit border-b border-black focus:outline-none focus:border-primary-light"
               type="email"
             />
@@ -17,6 +55,7 @@ function Form() {
           <label className="text-footer font-semibold text-[#8E9093] tracking-wide">
             Password
             <input
+              onChange={handlePassword}
               className="w-full text-call text-black py-2 bg-inherit border-b border-black focus:outline-none focus:border-primary-light"
               type="password"
             />

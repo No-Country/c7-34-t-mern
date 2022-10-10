@@ -57,10 +57,11 @@ app.get("/login", verifyNoToken, (req, res) => {
   res.render("login.ejs", { messages: "" })
 })
 
-app.post("/login", authUser, (req, res) => {
-  console.log("Login Sucessfull")
-  res.redirect("/index")
-})
+app.post("/login", authUser)
+// app.post("/login", authUser, (req, res) => {
+//   console.log("Login Sucessfull")
+//   res.redirect("/index")
+// })
 
 //index
 app.get("/index",verifyToken, (req, res) => {

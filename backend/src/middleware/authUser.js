@@ -22,14 +22,18 @@ authUser = async (req, res, next) => {
           }
         )
         req.session.token = token;
-
-        console.log(token)
-        next()
+        let nDatos={...user, token}
+        console.log("Login Sucessfull")
+        res.status(200).json(nDatos)
+        //console.log(token)
+        //next()
       } else {
-        res.render("login.ejs", { messages: "Contrase\361a Incorrecta" })
+        //res.render("login.ejs", { messages: "Contrase\361a Incorrecta" })
+        res.status(400).json("Contrase\361a Incorrecta")
       }
     } else {
-      res.render("login.ejs", { messages: "Usuario No Registrado" })
+      //res.render("login.ejs", { messages: "Usuario No Registrado" })
+      res.status(400).json("Usuario No Registrado")
     }
   } catch (error) {
     console.log(error)
