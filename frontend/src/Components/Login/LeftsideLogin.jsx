@@ -1,5 +1,6 @@
 import logo from "@/assets/AppIcon.webp"
 import picSignIn from "@/assets/loginbg.webp"
+import { Link } from "react-router-dom"
 
 function LeftsideLogin() {
   return (
@@ -12,9 +13,9 @@ function LeftsideLogin() {
       />
 
       <aside className="flex flex-col gap-[60vh] mx-8">
-        <figure className="relative mt-6 h-full">
+        <Link to={"/home"} className="relative mt-6 h-full">
           <img className="h-20" src={logo} alt="CoinBook-logo" />
-        </figure>
+        </Link>
         <article className="flex flex-col justify-start items-center gap-6 py-4 px-8 text-center h-60 w-full rounded-md bg-opacity-60 backdrop-filter backdrop-blur-sm">
           <span className="text-white font-general font-semibold text-[2.5rem]">
             Coin Book

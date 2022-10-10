@@ -1,8 +1,16 @@
-import { FcGoogle } from "react-icons/fc"
+import { FcGoogle, FcHome } from "react-icons/fc"
+import { Link } from "react-router-dom"
 
 function TitleForm() {
   return (
-    <aside className="flex flex-col gap-14">
+    <aside className="grid gap-2 sm:gap-14">
+      <Link
+        to={"/home"}
+        className="flex justify-end items-center gap-2 font-general font-semibold text-headline underline md:hidden"
+      >
+        <FcHome fontSize="1.5rem" />
+        Home
+      </Link>
       <div className="flex flex-col gap-2 items-center justify-center">
         <h1 className="font-bold font-general text-big_title md:text-[3.5rem]">
           ¡Bienvenido/a!
