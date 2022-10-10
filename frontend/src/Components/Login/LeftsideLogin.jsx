@@ -1,5 +1,5 @@
-import logo from "@/assets/AppIcon.svg"
-import picSignIn from "@/assets/siginpic.svg"
+import logo from "@/assets/AppIcon.webp"
+import picSignIn from "@/assets/loginbg.webp"
 
 function LeftsideLogin() {
   return (
