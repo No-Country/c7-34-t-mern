@@ -29,15 +29,15 @@ authUser = async (req, res, next) => {
         //next()
       } else {
         //res.render("login.ejs", { messages: "Contrase\361a Incorrecta" })
-        res.status(400).json("Contrase\361a Incorrecta")
+        res.status(200).json("Contrase\361a Incorrecta")
       }
     } else {
       //res.render("login.ejs", { messages: "Usuario No Registrado" })
-      res.status(400).json("Usuario No Registrado")
+      res.status(200).json("Usuario No Registrado")
     }
   } catch (error) {
     console.log(error)
-    res.status(500).send("Internal Server error Occured")
+    res.status(200).send("Internal Server error Occured")
   }
 }
 
