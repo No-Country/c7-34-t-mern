@@ -5,7 +5,10 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 const BenefitsSection = () => {
   const [selectedBenefit, setSelectedBenefit] = useState(0)
   return (
-    <section className="bg-[#FAFAFA] p-8 w-full flex flex-col items-center font-general shadow-sm">
+    <section
+      id="benefits"
+      className="bg-[#FAFAFA] p-8 w-full flex flex-col items-center font-general shadow-sm"
+    >
       <h2 className="mb-10 md:mb-20 text-title1 sm:text-bold_title font-semibold font-general">
         {" "}
         ¿Por qué Utilizar los Bolsillos?{" "}
