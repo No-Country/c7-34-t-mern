@@ -1,9 +1,9 @@
+import { onSubmit } from "@/services"
 import { UtilForm } from "@/Utils"
-import { useForm, FormProvider } from "react-hook-form";
-import { onSubmit } from "@/services/register";
+import { FormProvider, useForm } from "react-hook-form"
 
 function RegisterForm() {
-  const methods = useForm();
+  const methods = useForm()
 
   return (
     <section className="px-5 mx-auto md:mx-[5%] ">
@@ -28,7 +28,7 @@ function RegisterForm() {
               <UtilForm name="password" type="password">
                 Contraseña
               </UtilForm>
-              <UtilForm name="confirmpass" type="password" >
+              <UtilForm name="confirmpass" type="password">
                 Confirmar Contraseña
               </UtilForm>
             </div>
@@ -47,4 +47,4 @@ function RegisterForm() {
   )
 }
 
-export default RegisterForm;
+export default RegisterForm
