@@ -1,4 +1,4 @@
-import { RegisterFormProvider } from "@/services"
+import RegisterFormProvider from "@/services/RegisterFormProvider"
 import { UtilForm } from "@/Utils"
 
 function RegisterForm() {
