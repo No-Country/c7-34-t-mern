@@ -60,11 +60,13 @@ module.exports = {
           dark: "#2C2C2C",
           white: "#FFFFFF",
           black: "#000000",
+          gray: "rgba(217, 217, 217, 0.4)",
         },
       },
       backgroundImage: {
         bgBanner: "url('./assets/Fondo.webp')",
         bgBanner1: "url('./assets/Fondo1.webp')",
+        bgRegister: "url('./assets/registerbg.webp')",
       },
     },
   },

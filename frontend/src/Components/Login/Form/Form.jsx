@@ -1,40 +1,42 @@
-import { useState, useEffect } from 'react';
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 function Form() {
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
+    setEmail(e.target.value)
+  }
 
   const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
+    setPassword(e.target.value)
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     //alert("User Added")
     const userData = {
       email: email,
       password: password,
-    };
+    }
 
-   try{
-    const add = await fetch("http://localhost:4000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    }).then(res => {return res.json()});
+    try {
+      const add = await fetch("http://localhost:4000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      }).then((res) => {
+        return res.json()
+      })
 
-  console.log(add)
-   }catch(err){
-     console.error()
-   }
-  };
+      console.log(add)
+    } catch (err) {
+      console.error()
+    }
+  }
 
   return (
     <aside>
@@ -90,12 +92,12 @@ function Form() {
         <p className="text-legend1 md:text-subtitle font-semibold">
           ¿Aún no tienes una cuenta?{" "}
         </p>
-        <a
-          href=""
+        <Link
+          to={"/register"}
           className="font-general font-bold text-legend1 md:text-subtitle text-black cursor-pointer"
         >
           ¡Crea una cuenta gratis aquí!
-        </a>
+        </Link>
       </div>
     </aside>
   )
