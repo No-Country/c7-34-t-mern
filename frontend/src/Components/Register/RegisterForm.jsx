@@ -1,10 +1,7 @@
-import { onSubmit } from "@/services"
+import RegisterFormProvider from "@/services/RegisterFormProvider"
 import { UtilForm } from "@/Utils"
-import { FormProvider, useForm } from "react-hook-form"
 
 function RegisterForm() {
-  const methods = useForm()
-
   return (
     <section className="px-5 mx-auto md:mx-[5%] ">
       <aside>
@@ -16,32 +13,30 @@ function RegisterForm() {
             Crear una nueva cuenta
           </h1>
         </div>
-        <FormProvider {...methods}>
-          <form onSubmit={onSubmit}>
-            <div className="mt-8 md:mt-12 flex flex-col gap-3 ">
-              <UtilForm name="name" type="text">
-                Nombre Completo
-              </UtilForm>
-              <UtilForm name="email" type="email">
-                Email
-              </UtilForm>
-              <UtilForm name="password" type="password">
-                Contraseña
-              </UtilForm>
-              <UtilForm name="confirmpass" type="password">
-                Confirmar Contraseña
-              </UtilForm>
-            </div>
-            <span className="w-full">
-              <button
-                type="submit"
-                className="bg-primary-base active:bg-primary-darker text-white mt-4 py-2 px-4 rounded w-full md:w-1/2"
-              >
-                Crear cuenta
-              </button>
-            </span>
-          </form>
-        </FormProvider>
+        <RegisterFormProvider>
+          <div className="mt-8 md:mt-12 flex flex-col gap-3 ">
+            <UtilForm name="name" type="text">
+              Nombre Completo
+            </UtilForm>
+            <UtilForm name="email" type="email">
+              Email
+            </UtilForm>
+            <UtilForm name="password" type="password">
+              Contraseña
+            </UtilForm>
+            <UtilForm name="confirmpass" type="password">
+              Confirmar Contraseña
+            </UtilForm>
+          </div>
+          <span className="w-full">
+            <button
+              type="submit"
+              className="bg-primary-base active:bg-primary-darker text-white mt-4 py-2 px-4 rounded w-full md:w-1/2"
+            >
+              Crear cuenta
+            </button>
+          </span>
+        </RegisterFormProvider>
       </aside>
     </section>
   )
