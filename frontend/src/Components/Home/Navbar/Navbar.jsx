@@ -1,4 +1,4 @@
-import logo from "@/assets/AppIcon.webp"
+import logo from "@/assets/images/AppIcon.webp"
 import { links } from "@/helpers"
 import { useState } from "react"
 import { Link } from "react-router-dom"

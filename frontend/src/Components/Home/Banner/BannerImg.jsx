@@ -1,4 +1,4 @@
-import CBanner from "@/assets/Coinbook-1.webp"
+import CBanner from "@/assets/images/Coinbook-1.webp"
 
 function BannerImg() {
   return (

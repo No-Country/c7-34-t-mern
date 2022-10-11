@@ -1,11 +1,14 @@
+import { handleValidation } from "@/helpers"
 import { useState } from "react"
-import { useFormContext } from "react-hook-form";
-import { handleValidation } from "@/helpers/validations";
+import { useFormContext } from "react-hook-form"
 
 function UtilForm({ type, name, children }) {
   const [active, setActive] = useState(false)
-  const methods = useFormContext();
-  const { register, formState: { errors } } = methods;
+  const methods = useFormContext()
+  const {
+    register,
+    formState: { errors },
+  } = methods
   const handleActivation = (e) => setActive(!!e.target.value)
 
   return (
