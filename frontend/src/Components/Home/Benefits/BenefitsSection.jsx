@@ -1,4 +1,4 @@
-import { benefits } from "@/helpers/benefits"
+import { benefits } from "@/helpers"
 import { useState } from "react"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 
