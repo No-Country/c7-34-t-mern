@@ -1,5 +1,5 @@
-import logo from "@/assets/AppIcon.webp"
-import picSignIn from "@/assets/loginbg.webp"
+import logo from "@/assets/images/AppIcon.webp"
+import picSignIn from "@/assets/images/loginbg.webp"
 import { Link } from "react-router-dom"
 
 function LeftsideLogin() {

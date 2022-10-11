@@ -64,9 +64,9 @@ module.exports = {
         },
       },
       backgroundImage: {
-        bgBanner: "url('./assets/Fondo.webp')",
-        bgBanner1: "url('./assets/Fondo1.webp')",
-        bgRegister: "url('./assets/registerbg.webp')",
+        bgBanner: "url('./assets/images/Fondo.webp')",
+        bgBanner1: "url('./assets/images/Fondo1.webp')",
+        bgRegister: "url('./assets/images/registerbg.webp')",
       },
     },
   },

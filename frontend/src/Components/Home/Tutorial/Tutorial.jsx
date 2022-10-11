@@ -1,4 +1,4 @@
-import appImg from "@/assets/cbapp.webp"
+import appImg from "@/assets/images/cbapp.webp"
 import TutorialText from "./TutorialText"
 
 function Tutorial() {
