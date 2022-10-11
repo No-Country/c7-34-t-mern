@@ -74,6 +74,14 @@ app.get("/register", verifyNoToken, (req, res) => {
 })
 
 app.post("/register", async (req, res) => {
+
+  const userExist = await userSchema.findOne({ email: req.body.email })
+
+  if (userExist) {
+    res.status(200).json("Usuario ya registrado")
+    return;
+  }
+
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     const user = userSchema({
@@ -88,12 +96,18 @@ app.post("/register", async (req, res) => {
       .then((data) => res.json(data))
       .catch((error) => res.json({ message: error }))
 
-    res.redirect("/login")
-
-    console.log(typeof user)
+    //res.redirect("/login")
+  
+    res.status(200)
+    console.log("User Successfully Registered")
     console.log(user)
+
+    //console.log(typeof user)
+    //console.log(user)
   } catch {
-    res.redirect("/register")
+    //res.redirect("/register")
+    console.log("...Server Error...")
+    res.status(400)
   }
 })
 
