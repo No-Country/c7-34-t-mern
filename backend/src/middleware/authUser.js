@@ -25,19 +25,15 @@ authUser = async (req, res, next) => {
         let nDatos={...user, token}
         console.log("Login Sucessfull")
         res.status(200).json(nDatos)
-        //console.log(token)
-        //next()
       } else {
-        //res.render("login.ejs", { messages: "Contrase\361a Incorrecta" })
-        res.status(200).json("Contrase\361a Incorrecta")
+        res.status(400).json("Wrong Password")
       }
     } else {
-      //res.render("login.ejs", { messages: "Usuario No Registrado" })
-      res.status(200).json("Usuario No Registrado")
+      res.status(400).json("Unregistered User")
     }
   } catch (error) {
     console.log(error)
-    res.status(200).send("Internal Server error Occured")
+    res.status(500).send("Internal Server error Occured")
   }
 }
 
