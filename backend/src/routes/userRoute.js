@@ -1,56 +1,61 @@
-const bcrypt = require("bcrypt")
 const express = require("express")
-const userSchema = require("../models/userSchema")
+const bodyParser = require("body-parser") // body parser middleware
+const cors = require("cors") //enable cors
+const session = require("express-session") // session middleware on the server side
 
-const router = express.Router()
+const verifyToken = require("../middleware/validateToken")
+const verifyNoToken = require("../middleware/validateNoToken")
+const authUser = require("../middleware/authUser")
+const registerUser = require("../middleware/registerUser")
+//const config = require("./configs/config")
 
-// create user
-router.post("/users", async (req, res) => {
-  const user = userSchema(req.body)
-  const salt = await bcrypt.genSalt(10)
-  // now we set user password to hashed password
-  user.password = await bcrypt.hash(user.password, salt)
+const app = express()
+//app.set("llave", config.llave)
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
-  user
-    .save()
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }))
+app.use(cors())
+app.set("view-engine", "ejs")
+app.use(express.json())
+
+app.use(express.urlencoded({ extended: false }))
+app.use(
+  session({
+    secret: process.env.DB_CONNECTION,
+    resave: true,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+)
+
+//user homepage
+app.get("/", verifyToken, (req, res) => {
+  res.render("index.ejs", { name: "Usuario" })
 })
 
-// get all users
-router.get("/users", (req, res) => {
-  userSchema
-    .find()
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }))
+//login
+app.get("/login", verifyNoToken, (req, res) => {
+  res.render("login.ejs", { messages: "" })
 })
 
-// get user by id
-router.get("/users/:id", (req, res) => {
-  const { id } = req.params
-  userSchema
-    .findById(id)
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }))
+app.post("/login", authUser)
+
+//index
+app.get("/index",verifyToken, (req, res) => {
+  res.render("index.ejs", { name: "Usuario" })
 })
 
-// update an user
-router.put("/users/:id", (req, res) => {
-  const { id } = req.params
-  const { name, age, email } = req.body
-  userSchema
-    .updateOne({ _id: id }, { $set: { name, age, email } })
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }))
+//register
+app.get("/register", verifyNoToken, (req, res) => {
+  res.render("register.ejs")
 })
 
-// delete an user
-router.delete("/users/:id", (req, res) => {
-  const { id } = req.params
-  userSchema
-    .deleteOne({ _id: id })
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }))
+app.post("/register", registerUser)
+
+//logout
+app.post('/logout',verifyToken ,(req, res) => {
+  req.session.token = null;
+  res.redirect('/login')
 })
 
-module.exports = router
+module.exports = app
