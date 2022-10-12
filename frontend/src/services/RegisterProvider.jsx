@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form"
 
-function RegisterFormProvider({ children }) {
+function RegisterProvider({ children }) {
   const methods = useForm()
   const { handleSubmit } = methods
 
@@ -32,4 +32,4 @@ function RegisterFormProvider({ children }) {
   )
 }
 
-export default RegisterFormProvider
+export default RegisterProvider
