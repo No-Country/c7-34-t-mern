@@ -14,3 +14,5 @@ PORT = 4000
 app.listen(PORT)
 app.use("/test", testRoute)
 app.use("/", userRoute)
+
+module.exports = app
