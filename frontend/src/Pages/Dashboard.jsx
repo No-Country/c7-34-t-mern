@@ -1,5 +1,6 @@
+import { DashboardLayout } from "@/Components"
 import { Auth } from "@/Utils"
-import React, { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 
 const Dasboard = () => {
   const data = useRef()
@@ -7,7 +8,11 @@ const Dasboard = () => {
   useEffect(() => {
     data.current = localStorage.getItem("userData")
   }, [])
-  return <Auth>qweqwuikje</Auth>
+  return (
+    <Auth>
+      <DashboardLayout></DashboardLayout>
+    </Auth>
+  )
 }
 
 export default Dasboard
