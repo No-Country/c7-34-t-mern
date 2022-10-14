@@ -1,4 +1,4 @@
-import { Sidebar } from "@/Components"
+import { DashboardLayout } from "@/Components"
 import { Auth } from "@/Utils"
 import { useEffect, useRef } from "react"
 
@@ -10,7 +10,7 @@ const Dasboard = () => {
   }, [])
   return (
     <Auth>
-      <Sidebar />
+      <DashboardLayout></DashboardLayout>
     </Auth>
   )
 }
