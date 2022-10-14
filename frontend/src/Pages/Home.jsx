@@ -1,13 +1,11 @@
-import { BannerCB, Navbar, Tutorial } from "../Components"
-import BenefitsSection from "@/Components/Home/Benefits/BenefitsSection"
-import Consult from "@/Components/Home/Consult/ConsultSection"
+import { BannerCB, Benefits, Consult, Navbar, Tutorial } from "../Components"
 
 function Home() {
   return (
     <>
       <Navbar />
       <BannerCB />
-      <BenefitsSection />
+      <Benefits />
       <Tutorial />
       <Consult />
     </>
