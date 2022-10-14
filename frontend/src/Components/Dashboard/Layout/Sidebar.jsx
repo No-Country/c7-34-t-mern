@@ -1,4 +1,5 @@
 import logo from "@/assets/images/AppIcon.webp"
+import logout from "@/assets/images/dashboard-icons/logout-icon.svg"
 import { dashLinks } from "@/helpers"
 import { Link } from "react-router-dom"
 
@@ -27,14 +28,21 @@ function Sidebar() {
                 to={link}
                 className="flex items-center gap-8 px-3 hover:text-white hover:bg-gray-400 rounded-md h-12"
               >
-                <img src={icon} alt="dashboard-icon" className="w-6" />
-                <h2 className="font-general font-semibold text-headline whitespace-no-wrap">
+                <img src={icon} alt="sidebar-icon" className="w-6" />
+                <h2 className="font-general font-normal text-headline hover:font-semibold tracking-wide whitespace-no-wrap">
                   {name}
                 </h2>
               </Link>
             )
           })}
         </aside>
+        <hr className="mt-60" />
+        <button className="flex items-center gap-8 px-3 h-12">
+          <img src={logout} alt="logout" className="w-6" />
+          <h2 className="font-general font-semibold text-headline tracking-wide whitespace-no-wrap">
+            Cerrar sesión
+          </h2>
+        </button>
       </div>
     </section>
   )
