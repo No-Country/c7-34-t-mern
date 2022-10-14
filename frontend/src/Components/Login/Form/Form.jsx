@@ -1,65 +1,77 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useForm } from "react-hook-form"
+import { Link, useNavigate } from "react-router-dom"
 
 function Form() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const methods = useForm()
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = methods
+  const navigateTo = useNavigate()
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value)
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    //alert("User Added")
+  const onSubmit = handleSubmit((data) => {
     const userData = {
-      email: email,
-      password: password,
+      email: data.email,
+      password: data.password,
     }
 
-    try {
-      const add = await fetch("http://localhost:4000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      }).then((res) => {
-        return res.json()
+    const URL = "http://localhost:4000/login"
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    }
+
+    const responseLogin = fetch(URL, options)
+      .then((response) => response.json())
+      .then((user) => {
+        localStorage.setItem("userData", JSON.stringify(user))
+        return user
       })
 
-      console.log(add)
-    } catch (err) {
-      console.error()
+    const loginData = async () => {
+      const a = await responseLogin
+      const b = a["token"]
+      if (b) {
+        navigateTo("/dashboard")
+      } else {
+        navigateTo("/login")
+      }
     }
-  }
+    loginData()
+  })
 
   return (
     <aside>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSubmit}>
         <div className="mb-6">
           <label className="text-footer font-semibold text-[#8E9093] tracking-wide">
             Email
             <input
-              onChange={handleEmail}
               className="w-full text-call text-black py-2 bg-inherit border-b border-black focus:outline-none focus:border-primary-light"
               type="email"
+              {...register("email")}
             />
           </label>
+          {errors.email ? (
+            <p className="text-red-500 mb-2">{errors.email.message}</p>
+          ) : null}
         </div>
         <div className="mt-6">
           <label className="text-footer font-semibold text-[#8E9093] tracking-wide">
             Password
             <input
-              onChange={handlePassword}
               className="w-full text-call text-black py-2 bg-inherit border-b border-black focus:outline-none focus:border-primary-light"
               type="password"
+              {...register("password")}
             />
           </label>
+          {errors.password ? (
+            <p className="text-red-500 mb-2">{errors.password.message}</p>
+          ) : null}
         </div>
         <div className="flex justify-between mt-6">
           <span className="flex justify-center items-center gap-2">

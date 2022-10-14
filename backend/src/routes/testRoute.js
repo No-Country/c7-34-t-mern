@@ -3,10 +3,18 @@ const express = require("express")
 const userSchema = require("../models/userSchema")
 
 const router = express.Router()
+router.use(express.json())
 
 // create user
 router.post("/users", async (req, res) => {
   const user = userSchema(req.body)
+  // const user = userSchema({
+  //   id: Date.now().toString(),
+  //   name: req.body.name,
+  //   email: req.body.email,
+  //   password: req.body.password})
+
+  console.log(user)
   const salt = await bcrypt.genSalt(10)
   // now we set user password to hashed password
   user.password = await bcrypt.hash(user.password, salt)

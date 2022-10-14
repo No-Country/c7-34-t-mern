@@ -1,4 +1,4 @@
-import RegisterFormProvider from "@/services/RegisterFormProvider"
+import { RegisterProvider } from "@/services"
 import { UtilForm } from "@/Utils"
 
 function RegisterForm() {
@@ -13,7 +13,7 @@ function RegisterForm() {
             Crear una nueva cuenta
           </h1>
         </div>
-        <RegisterFormProvider>
+        <RegisterProvider>
           <div className="mt-8 md:mt-12 flex flex-col gap-3 ">
             <UtilForm name="name" type="text">
               Nombre Completo
@@ -36,7 +36,7 @@ function RegisterForm() {
               Crear cuenta
             </button>
           </span>
-        </RegisterFormProvider>
+        </RegisterProvider>
       </aside>
     </section>
   )
