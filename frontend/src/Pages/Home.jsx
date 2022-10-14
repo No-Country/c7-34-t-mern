@@ -1,5 +1,6 @@
 import { BannerCB, Navbar, Tutorial } from "../Components"
 import BenefitsSection from "@/Components/Home/Benefits/BenefitsSection"
+import Consult from "@/Components/Home/Consult/ConsultSection"
 
 function Home() {
   return (
@@ -8,6 +9,7 @@ function Home() {
       <BannerCB />
       <BenefitsSection />
       <Tutorial />
+      <Consult />
     </>
   )
 }
