@@ -1,15 +1,16 @@
-import { LoginProvider } from "@/services"
-import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom"
 
 function Form() {
   const methods = useForm()
-  const { handleSubmit, register, formState: { errors } } = methods
-  const navigateTo = useNavigate();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = methods
+  const navigateTo = useNavigate()
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data)
     const userData = {
       email: data.email,
       password: data.password,
@@ -18,32 +19,30 @@ function Form() {
     const URL = "http://localhost:4000/login"
     const options = {
       method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData)
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
     }
 
     const responseLogin = fetch(URL, options)
       .then((response) => response.json())
       .then((user) => {
-        localStorage.setItem('userData', JSON.stringify(user))
-        return user;
+        localStorage.setItem("userData", JSON.stringify(user))
+        return user
       })
 
     const loginData = async () => {
       const a = await responseLogin
-      const b = a['token']
+      const b = a["token"]
       if (b) {
         navigateTo("/dashboard")
       } else {
         navigateTo("/login")
-      } 
+      }
     }
     loginData()
-
   })
-
 
   return (
     <aside>
@@ -54,12 +53,12 @@ function Form() {
             <input
               className="w-full text-call text-black py-2 bg-inherit border-b border-black focus:outline-none focus:border-primary-light"
               type="email"
-              {...register('email')}
+              {...register("email")}
             />
           </label>
-            {errors.email ? (
-              <p className="text-red-500 mb-2">{errors.email.message}</p>
-            ) : null}
+          {errors.email ? (
+            <p className="text-red-500 mb-2">{errors.email.message}</p>
+          ) : null}
         </div>
         <div className="mt-6">
           <label className="text-footer font-semibold text-[#8E9093] tracking-wide">
@@ -67,12 +66,12 @@ function Form() {
             <input
               className="w-full text-call text-black py-2 bg-inherit border-b border-black focus:outline-none focus:border-primary-light"
               type="password"
-              {...register('password')}
+              {...register("password")}
             />
           </label>
-            {errors.password ? (
-              <p className="text-red-500 mb-2">{errors.password.message}</p>
-            ) : null}
+          {errors.password ? (
+            <p className="text-red-500 mb-2">{errors.password.message}</p>
+          ) : null}
         </div>
         <div className="flex justify-between mt-6">
           <span className="flex justify-center items-center gap-2">
