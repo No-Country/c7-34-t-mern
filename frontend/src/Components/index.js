@@ -1,3 +1,4 @@
+export { default as Sidebar } from "./Dashboard/Sidebar"
 export { default as BannerCB } from "./Home/Banner/BannerCB"
 export { default as BannerImg } from "./Home/Banner/BannerImg"
 export { default as BannerText } from "./Home/Banner/BannerText"
