@@ -7,16 +7,16 @@ function LoginProvider({ children }) {
   const navigateTo = useNavigate();
 
   const onSubmit = handleSubmit((data) => {
-    //console.log(data)
-    // const userData = {
-    //   email: data.email,
-    //   password: data.password,
-    // }
-
+    console.log(data)
     const userData = {
-      email: "j@juan.com",
-      password: "1234",
+      email: data.email,
+      password: data.password,
     }
+
+    // const userData = {
+    //   email: "j@juan.com",
+    //   password: "1234",
+    // }
 
     const URL = "http://localhost:4000/login"
     const options = {
