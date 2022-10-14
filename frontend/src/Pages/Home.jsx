@@ -1,4 +1,11 @@
-import { BannerCB, Benefits, Consult, Navbar, Tutorial } from "../Components"
+import {
+  BannerCB,
+  Benefits,
+  Consult,
+  Footer,
+  Navbar,
+  Tutorial,
+} from "@/Components"
 
 function Home() {
   return (
@@ -8,6 +15,7 @@ function Home() {
       <Benefits />
       <Tutorial />
       <Consult />
+      <Footer />
     </>
   )
 }
