@@ -20,9 +20,9 @@ function Navbar() {
           <ion-icon name={open ? "close" : "menu"}></ion-icon>
         </button>
         <ul
-          className={`w-full flex flex-col gap-6 md:flex-row md:justify-end md:gap-6 pt-6 md:pt-0 md:items-center cursor-pointer md:mb-0 mb-12 absolute md:static bg-primary-dark md:z-auto z-[-1]
+          className={`w-full flex flex-col gap-6 md:flex-row md:justify-end pt-6 md:items-center cursor-pointer md:mb-0 md:pt-0 mb-12 absolute md:static bg-primary-dark md:z-auto z-[-1]
       md:pl-0 pl-9 transition-all duration-500 ease-in ${
-        open ? "top-20 opacity-100 z-10 pb-6" : "top-[-490px]"
+        open ? "top-22 left-0 opacity-100 z-10 pb-6" : "top-[-490px] left-0"
       } `}
         >
           {links.map((link) => (

@@ -2,12 +2,12 @@ import { benefits } from "@/helpers"
 import { useState } from "react"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 
-const BenefitsSection = () => {
+const Benefits = () => {
   const [selectedBenefit, setSelectedBenefit] = useState(0)
   return (
     <section
       id="benefits"
-      className="bg-[#FAFAFA] p-8 w-full flex flex-col items-center font-general shadow-sm"
+      className="bg-gray-100 p-8 w-full flex flex-col items-center font-general shadow-sm"
     >
       <h2 className="mb-10 md:mb-20 text-title1 sm:text-bold_title font-semibold font-general">
         {" "}
@@ -62,4 +62,4 @@ const BenefitsSection = () => {
   )
 }
 
-export default BenefitsSection
+export default Benefits
