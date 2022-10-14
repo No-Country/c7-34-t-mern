@@ -1,9 +1,16 @@
 import logo from "@/assets/images/AppIcon.webp"
 import logout from "@/assets/images/dashboard-icons/logout-icon.svg"
 import { dashLinks } from "@/helpers"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function Sidebar() {
+  const navigateTo = useNavigate()
+
+  const handleLogout = () => {
+    localStorage.clear()
+    navigateTo("/login")
+  }
+
   return (
     <section className="w-20 hover:w-72 bg-white min-h-screen overflow-hidden z-10 transition-[width] duration-75 ease-[cubic-bezier(0.175, 0.885, 0.32, 1.275)]">
       <div className="flex flex-col gap-4 justify-center m-6 mx-4">
@@ -37,7 +44,10 @@ function Sidebar() {
           })}
         </aside>
         <hr className="mt-60" />
-        <button className="flex items-center gap-8 px-3 h-12">
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-8 px-3 h-12"
+        >
           <img src={logout} alt="logout" className="w-6" />
           <h2 className="font-general font-semibold text-headline tracking-wide whitespace-no-wrap">
             Cerrar sesión
