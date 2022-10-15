@@ -3,7 +3,7 @@ import { TbGridDots, TbBell, TbMessage, TbSearch } from "react-icons/tb"
 
 function Header({ title }) {
   return (
-    <header className="bg-indigo-100 flex items-center py-8 px-[5%] gap-[5%] sm:px-20 sm:justify-center md:justify-around lg:gap-2 relative left-20 md:left-0 h-20 md:h-24">
+    <header className="bg-indigo-100 flex items-center py-8 px-[5%] gap-[5%] sm:px-[10%] sm:justify-around lg:gap-2 relative left-20 md:left-10 h-20 md:h-24">
       <div className="flex items-center gap-1">
         <TbGridDots size="1.5rem" />
         <h2 className="hidden sm:block font-general font-semibold text-title1 lg:text-big_title">
