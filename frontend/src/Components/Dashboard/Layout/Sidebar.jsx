@@ -12,7 +12,7 @@ function Sidebar() {
   }
 
   return (
-    <section className="w-20 hover:w-72 bg-white min-h-screen overflow-hidden z-10 transition-[width] duration-75 ease-[cubic-bezier(0.175, 0.885, 0.32, 1.275)]">
+    <section className="w-20 hover:w-72 bg-white min-h-screen overflow-hidden hover:z-10 hovet:fixed transition-[width] duration-75 ease-[cubic-bezier(0.175, 0.885, 0.32, 1.275)]">
       <div className="flex flex-col gap-4 justify-center m-6 mx-4">
         <aside className="flex gap-6">
           <img src={logo} alt="logo-cb" className="w-12" />
