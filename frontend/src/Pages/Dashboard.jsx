@@ -1,4 +1,4 @@
-import { DashboardLayout } from "@/Components"
+import { Balance, UserLayout } from "@/Components"
 import { Auth } from "@/Utils"
 import { useEffect, useRef } from "react"
 
@@ -10,7 +10,9 @@ const Dasboard = () => {
   }, [])
   return (
     <Auth>
-      <DashboardLayout></DashboardLayout>
+      <UserLayout>
+        <Balance />
+      </UserLayout>
     </Auth>
   )
 }
