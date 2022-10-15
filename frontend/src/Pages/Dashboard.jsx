@@ -12,7 +12,9 @@ const Dasboard = () => {
   return (
     <Auth>
       <UserLayout>
-        <Balance />
+        <div className="bg-indigo-400 max-h-screen">
+          <Balance />
+        </div>
       </UserLayout>
     </Auth>
   )
