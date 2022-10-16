@@ -1,45 +1,51 @@
-###
+### post a new user
 POST http://localhost:4000/test/users HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "user 6",
-  "email": "user6@gmail.com",
-  "password": "1234",
-  "balance": [
-    {
-      {"incomes": [{
-        "task": "Sueldo",
-        "income": 120
-      }]},
-      {"expenses": [{
-        "task": "Renta Casa",
-        "expense": 50
-      }]}
-    }
-  ]  
-  
+  "name": "user 7",
+  "email": "u7@gmail.com",
+  "password": "1234"
 }
 
-###
+### get all user
 GET http://localhost:4000/test/users HTTP/1.1
 
-###
-GET http://localhost:4000/test/users/6333b0ccf50ccf108b475494 HTTP/1.1
+### get specific user
+GET http://localhost:4000/test/users/63360379061e5b283644f1cd HTTP/1.1
 
-###
-GET http://localhost:4000/test/users/jhonnycal23@gmail.com HTTP/1.1
 
-###
-PUT http://localhost:4000/test/users/63322e992d1ae79966c4e14f HTTP/1.1
+### update an user
+PUT http://localhost:4000/test/users/63360379061e5b283644f1cd HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Jhonny Calvoo",
-  "email": "jhonnycalvo1234@gmail.com",
-  "password": "1234abc"
+  "name": "Juan front",
+  "email": "j@juan.com",
+  "password": "1234"
 }
 
-###
+### Delete an user
 DELETE http://localhost:4000/test/users/6334d7285fd8cb18d0a2a3d3 HTTP/1.1
+
+
+### Post balance income user
+POST http://localhost:4000/test/balance HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "user": "6334d7285fd8cb18d0a2a3d3",
+  "activity": "netflix",
+  "category": "Servicio",
+  "amount": "7",
+  "balance_type": "expense"
+}
+
+### Get user income
+GET http://localhost:4000/test/balance/6334d7285fd8cb18d0a2a3d3 HTTP/1.1
+
+
+### Delete an income
+DELETE http://localhost:4000/test/balance/634c169912ff4c38c0cd1d69 HTTP/1.1

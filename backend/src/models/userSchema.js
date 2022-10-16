@@ -1,8 +1,7 @@
 const mongoose = require("mongoose")
-const dotenv = require("dotenv") 
+const dotenv = require("dotenv")
 const passportLocalMongoose = require("passport-local-mongoose")
 dotenv.config()
-//const balanceSchema = require("../models/balanceSchema")
 
 const userSchema = mongoose.Schema({
   name: {
@@ -16,11 +15,7 @@ const userSchema = mongoose.Schema({
   password: {
     type: String,
     required: true,
-  },
-  balance:[{
-    type: mongoose.Schema.Types.ObjectId,
-    refs: 'balance'
-    }]
+  }
 })
 
 userSchema.plugin(passportLocalMongoose)
