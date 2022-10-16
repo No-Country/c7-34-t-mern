@@ -1,0 +1,58 @@
+export const movements = [
+  {
+    id: 0,
+    activity: "Supermercado",
+    category: "Alimento semanal",
+    amount: 1386,
+    type: "egreso",
+  },
+  {
+    id: 1,
+    activity: "Cine",
+    category: "Entretenimiento",
+    amount: 250,
+    type: "egreso",
+  },
+  {
+    id: 2,
+    activity: "Pago de octubre",
+    category: "Salario nómina",
+    amount: 20000,
+    type: "ingreso",
+  },
+  {
+    id: 3,
+    activity: "Agua",
+    category: "Servicios de la casa",
+    amount: 250,
+    type: "egreso",
+  },
+  {
+    id: 4,
+    activity: "Internet",
+    category: "Servicios de la casa",
+    amount: 150,
+    type: "egreso",
+  },
+  {
+    id: 5,
+    activity: "Teléfono",
+    category: "Móvil",
+    amount: 100,
+    type: "egreso",
+  },
+  {
+    id: 6,
+    activity: "Gasolina",
+    category: "Moto",
+    amount: 200,
+    type: "egreso",
+  },
+  {
+    id: 7,
+    activity: "Mi amigo me pagó",
+    category: "Préstamo",
+    amount: 3500,
+    type: "ingreso",
+  },
+]
