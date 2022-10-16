@@ -12,7 +12,7 @@ const Dasboard = () => {
   return (
     <Auth>
       <UserLayout>
-        <div className="bg-indigo-400 max-h-screen">
+        <div className="h-screen mx-auto relative left-10 flex flex-col items-center lg:grid lg:grid-cols-2 lg:items-start">
           <Balance />
         </div>
       </UserLayout>
