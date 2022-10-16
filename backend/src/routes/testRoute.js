@@ -1,20 +1,13 @@
 const bcrypt = require("bcrypt")
 const express = require("express")
 const userSchema = require("../models/userSchema")
-
+const balanceSchema = require("../models/balanceSchema")
 const router = express.Router()
 router.use(express.json())
 
 // create user
 router.post("/users", async (req, res) => {
   const user = userSchema(req.body)
-  // const user = userSchema({
-  //   id: Date.now().toString(),
-  //   name: req.body.name,
-  //   email: req.body.email,
-  //   password: req.body.password})
-
-  console.log(user)
   const salt = await bcrypt.genSalt(10)
   // now we set user password to hashed password
   user.password = await bcrypt.hash(user.password, salt)
@@ -56,6 +49,39 @@ router.put("/users/:id", (req, res) => {
 router.delete("/users/:id", (req, res) => {
   const { id } = req.params
   userSchema
+    .deleteOne({ _id: id })
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }))
+})
+
+
+///////////////////////////Balance
+
+
+// Post user balance
+router.post("/balance", async (req, res) => {
+  const user = balanceSchema(req.body)
+  // now we set user password to hashed password
+  //user.user = user.user + Date.now().toString();
+  user
+    .save()
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }))
+})
+
+// Get user balance
+router.get("/balance/:id", (req, res) => {
+  const { id } = req.params
+  balanceSchema
+    .find({user: id})
+    .then((data) => res.json(data))
+    .catch((error) => res.json({ message: error }))
+})
+
+// delete an user balance
+router.delete("/balance/:id", (req, res) => {
+  const { id } = req.params
+  balanceSchema
     .deleteOne({ _id: id })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }))
