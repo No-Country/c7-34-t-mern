@@ -27,35 +27,11 @@ app.use(
     cookie: { secure: false },
   })
 )
-
-//user homepage
-app.get("/", verifyToken, (req, res) => {
-  res.render("index.ejs", { name: "Usuario" })
-})
-
+ 
 //login
-app.get("/login", verifyNoToken, (req, res) => {
-  res.render("login.ejs", { messages: "" })
-})
-
 app.post("/login", authUser)
 
-//index
-app.get("/index",verifyToken, (req, res) => {
-  res.render("index.ejs", { name: "Usuario" })
-})
-
 //register
-app.get("/register", verifyNoToken, (req, res) => {
-  res.render("register.ejs")
-})
-
 app.post("/register", registerUser)
-
-//logout
-app.post('/logout',verifyToken ,(req, res) => {
-  req.session.token = null;
-  res.redirect('/login')
-})
 
 module.exports = app
