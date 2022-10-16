@@ -3,18 +3,26 @@ const dotenv = require("dotenv")
 const passportLocalMongoose = require("passport-local-mongoose")
 dotenv.config()
 
-// const incomeSchema = require("./incomeSchema")
-// const expenseSchema = require("./expenseSchema")
-
-const balanceSchema = mongoose.Schema({
-  incomes: [{
-    type: mongoose.Schema.Types.ObjectId,
-    refs: 'income',
-  }],
-  expenses: [{
-    type: mongoose.Schema.Types.ObjectId,
-    refs: 'expense'
-  }]
+const balanceSchema = mongoose.Schema({ 
+  user: { 
+    type: String, 
+    required: true
+  },
+  activity: {
+    type: String,
+    required: true
+  },
+  category: {
+    type: String
+  },
+  amount: {
+    type: Number,
+    required: true
+  },
+  balance_type : {
+    type: String
+  }
 })
+
 balanceSchema.plugin(passportLocalMongoose)
 module.exports = mongoose.model("balance", balanceSchema)
