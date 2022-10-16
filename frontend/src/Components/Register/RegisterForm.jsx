@@ -28,14 +28,6 @@ function RegisterForm() {
               Confirmar Contraseña
             </UtilForm>
           </div>
-          <span className="w-full">
-            <button
-              type="submit"
-              className="bg-primary-base active:bg-primary-darker text-white mt-4 py-2 px-4 rounded w-full md:w-1/2"
-            >
-              Crear cuenta
-            </button>
-          </span>
         </RegisterProvider>
       </aside>
     </section>
