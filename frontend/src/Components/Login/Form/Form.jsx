@@ -16,7 +16,8 @@ function Form() {
       password: data.password,
     }
 
-    const URL = "http://localhost:4000/login"
+    console.log("...user: " + userData.email)
+    const URL = "https://coinbookbackend-production.up.railway.app/login"
     const options = {
       method: "POST",
       headers: {
@@ -30,7 +31,9 @@ function Form() {
       .then((user) => {
         localStorage.setItem("userData", JSON.stringify(user))
         return user
-      })
+      }).catch((error) => {
+        console.log(error)
+      });
 
     const loginData = async () => {
       const a = await responseLogin

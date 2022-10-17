@@ -22,8 +22,6 @@ app.use(
 
 app.post("/balance", async (req, res) => {
     const user = balanceSchema(req.body)
-    // now we set user password to hashed password
-    //user.user = user.user + Date.now().toString();
     user
         .save()
         .then((data) => res.json(data))
