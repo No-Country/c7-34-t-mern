@@ -19,9 +19,9 @@ function RegisterProvider({ children }) {
     const userData = {
       name: data.name,
       email: data.email,
-      password: data.password,
+      password: data.password, 
     }
-    fetch("http://localhost:4000/register", {
+    fetch("https://coinbookbackend-production.up.railway.app/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
