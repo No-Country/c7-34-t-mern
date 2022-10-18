@@ -1,21 +1,21 @@
 import dataBalance from "@/assets/images/balance-data.svg"
 import subsBalance from "@/assets/images/balance-subs.svg"
-import { balance_movements } from "@/helpers"
-// import { movements } from "@/helpers"
-import { GiAnticlockwiseRotation } from "react-icons/gi"
-
-function balance () {
-  const api_balance = balance_movements
-  const movements = api_balance
-  console.log(typeof movements)
-  return movements
-}
-
-const movements = Object.values(balance())
-
-//console.log(movements)
+import { useEffect, useRef, useState } from "react"
 
 function Balance() {
+  const [movements, setMovements] = useState();
+  const user= JSON.parse(localStorage.getItem("userData"))._doc;
+  
+  useEffect(() => {
+    fetch(`https://coinbookbackend-production.up.railway.app/balance/balance/${user._id}`, {
+      method: 'GET',
+      credentials: 'same-origin'
+    })
+    .then(res => res.json())
+    .then(res => setMovements(res))
+    .catch(err => console.error(err));
+
+  }, [])
   return (
     <section className="flex flex-col gap-10 my-6 sm:my-10">
       <aside>
@@ -52,17 +52,17 @@ function Balance() {
                 colSpan={2}
                 className="px-5 py-2 border-b-2 border-gray-200 bg-white text-center font-general font-semibold text-footer lg:text-headline text-gray-600 uppercase tracking-wider"
               >
-                Movimientos Juan
+                Movimientos {user.name}
               </th>
             </tr>
           </thead>
           <tbody>
             { movements !== undefined ? movements.map((mov, i) => {
-              const { id, activity, category, amount, type } = mov
+              const { _id, activity, category, amount, type } = mov
 
               return (
                 <tr
-                  key={id}
+                  key={_id}
                   className={`${
                     i % 2 == 0
                       ? "bg-indigo-100 border-x border-neutral-gray drop-shadow-lg"
