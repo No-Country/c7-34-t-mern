@@ -1,20 +1,22 @@
 import dataBalance from "@/assets/images/balance-data.svg"
 import subsBalance from "@/assets/images/balance-subs.svg"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
 function Balance({ setPostBalance }) {
-  const [movements, setMovements] = useState();
-  const user= JSON.parse(localStorage.getItem("userData"))._doc;
-  
-  useEffect(() => {
-    fetch(`https://coinbookbackend-production.up.railway.app/balance/balance/${user._id}`, {
-      method: 'GET',
-      credentials: 'same-origin'
-    })
-    .then(res => res.json())
-    .then(res => setMovements(res))
-    .catch(err => console.error(err));
+  const [movements, setMovements] = useState()
+  const user = JSON.parse(localStorage.getItem("userData"))._doc
 
+  useEffect(() => {
+    fetch(
+      `https://coinbookbackend-production.up.railway.app/balance/balance/${user._id}`,
+      {
+        method: "GET",
+        credentials: "same-origin",
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => setMovements(res))
+      .catch((err) => console.error(err))
   }, [])
   return (
     <section className="flex flex-col gap-10 my-6 sm:my-10">
@@ -57,59 +59,60 @@ function Balance({ setPostBalance }) {
             </tr>
           </thead>
           <tbody>
-            { movements !== undefined ? movements.map((mov, i) => {
-              const { _id, activity, category, amount, type } = mov
+            {movements !== undefined
+              ? movements.map((mov, i) => {
+                  const { _id, activity, category, amount, type } = mov
 
-              return (
-                <tr
-                  key={_id}
-                  className={`${
-                    i % 2 == 0
-                      ? "bg-indigo-100 border-x border-neutral-gray drop-shadow-lg"
-                      : "bg-white"
-                  } py-1`}
-                >
-                  <td className="border-b border-gray-200 px-2">
-                    <div className="flex flex-col px-4 py-1 sm:py-0.5">
-                      <p className="font-general font-semibold text-footer xl:text-headline tracking-normal">
-                        {activity}
-                      </p>
-                      <p className="font-general font-semibold text-legend1 xl:text-footer text-gray-400 tracking-normal">
-                        {category}
-                      </p>
-                    </div>
-                  </td>
-                  <td className="border-b border-gray-200">
-                    <div className="flex justify-end px-4">
-                      <p
-                        className={`${
-                          type === "ingreso"
-                            ? "text-primary-base"
-                            : "text-secondary-light"
-                        } font-general font-bold tracking-wide text-headline xl:text-title3`}
-                      >
-                        {type === "ingreso" ? "+ $ " : "- $ "}
-                        {amount}
-                      </p>
-                    </div>
-                  </td>
-                </tr>
-              )
-            }) : null
-          }
+                  return (
+                    <tr
+                      key={_id}
+                      className={`${
+                        i % 2 == 0
+                          ? "bg-indigo-100 border-x border-neutral-gray drop-shadow-lg"
+                          : "bg-white"
+                      } py-1`}
+                    >
+                      <td className="border-b border-gray-200 px-2">
+                        <div className="flex flex-col px-4 py-1 sm:py-0.5">
+                          <p className="font-general font-semibold text-footer xl:text-headline tracking-normal">
+                            {activity}
+                          </p>
+                          <p className="font-general font-semibold text-legend1 xl:text-footer text-gray-400 tracking-normal">
+                            {category}
+                          </p>
+                        </div>
+                      </td>
+                      <td className="border-b border-gray-200">
+                        <div className="flex justify-end px-4">
+                          <p
+                            className={`${
+                              type === "ingreso"
+                                ? "text-primary-base"
+                                : "text-secondary-light"
+                            } font-general font-bold tracking-wide text-headline xl:text-title3`}
+                          >
+                            {type === "ingreso" ? "+ $ " : "- $ "}
+                            {amount}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  )
+                })
+              : null}
           </tbody>
         </table>
         <div className="w-full flex items-center justify-around gap-2 my-8">
-          <button 
+          <button
             className="rounded-2xl py-3 bg-secondary-light hover:bg-secondary-lighter text-white font-general font-semibold text-footer sm:text-headline w-28 sm:w-40"
-            onClick={() => setPostBalance('expense')}
+            onClick={() => setPostBalance("expense")}
           >
             {" "}
             -$ Añadir Gasto{" "}
           </button>
-          <button 
+          <button
             className="rounded-2xl py-3 bg-primary-base hover:bg-primary-light text-white font-general font-semibold text-footer sm:text-headline w-28 sm:w-40"
-            onClick={() => setPostBalance('income')}
+            onClick={() => setPostBalance("income")}
           >
             {" "}
             + Añadir Ingreso{" "}
