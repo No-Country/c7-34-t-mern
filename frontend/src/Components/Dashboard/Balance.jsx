@@ -1,7 +1,19 @@
 import dataBalance from "@/assets/images/balance-data.svg"
 import subsBalance from "@/assets/images/balance-subs.svg"
-import { movements } from "@/helpers"
+import { balance_movements } from "@/helpers"
+// import { movements } from "@/helpers"
 import { GiAnticlockwiseRotation } from "react-icons/gi"
+
+function balance () {
+  const api_balance = balance_movements
+  const movements = api_balance
+  console.log(typeof movements)
+  return movements
+}
+
+const movements = Object.values(balance())
+
+//console.log(movements)
 
 function Balance() {
   return (
@@ -45,7 +57,7 @@ function Balance() {
             </tr>
           </thead>
           <tbody>
-            {movements.map((mov, i) => {
+            { movements !== undefined ? movements.map((mov, i) => {
               const { id, activity, category, amount, type } = mov
 
               return (
@@ -83,7 +95,8 @@ function Balance() {
                   </td>
                 </tr>
               )
-            })}
+            }) : null
+          }
           </tbody>
         </table>
         <div className="w-full flex items-center justify-around gap-2 my-8">
