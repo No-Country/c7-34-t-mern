@@ -2,7 +2,7 @@ import dataBalance from "@/assets/images/balance-data.svg"
 import subsBalance from "@/assets/images/balance-subs.svg"
 import { useEffect, useRef, useState } from "react"
 
-function Balance() {
+function Balance({ setPostBalance }) {
   const [movements, setMovements] = useState();
   const user= JSON.parse(localStorage.getItem("userData"))._doc;
   
@@ -100,11 +100,17 @@ function Balance() {
           </tbody>
         </table>
         <div className="w-full flex items-center justify-around gap-2 my-8">
-          <button className="rounded-2xl py-3 bg-primary-base hover:bg-primary-light text-white font-general font-semibold text-footer sm:text-headline w-28 sm:w-40">
+          <button 
+            className="rounded-2xl py-3 bg-secondary-light hover:bg-secondary-lighter text-white font-general font-semibold text-footer sm:text-headline w-28 sm:w-40"
+            onClick={() => setPostBalance('expense')}
+          >
             {" "}
             -$ Añadir Gasto{" "}
           </button>
-          <button className="rounded-2xl py-3 bg-secondary-light hover:bg-secondary-lighter text-white font-general font-semibold text-footer sm:text-headline w-28 sm:w-40">
+          <button 
+            className="rounded-2xl py-3 bg-primary-base hover:bg-primary-light text-white font-general font-semibold text-footer sm:text-headline w-28 sm:w-40"
+            onClick={() => setPostBalance('income')}
+          >
             {" "}
             + Añadir Ingreso{" "}
           </button>
