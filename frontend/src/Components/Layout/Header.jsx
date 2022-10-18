@@ -1,7 +1,13 @@
 import avatar from "@/assets/images/Avatar.svg"
+import { useEffect, useRef, useState } from "react";
 import { TbGridDots, TbBell, TbMessage, TbSearch } from "react-icons/tb"
 
 function Header({ title }) {
+  const [user, setUser] = useState('random');
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("userData"))._doc.name)
+  }, [])
+
   return (
     <header className="bg-indigo-100 flex items-center py-8 px-[5%] gap-[5%] sm:px-[10%] sm:justify-around lg:gap-2 relative left-20 md:left-10 h-20 md:h-24">
       <div className="flex items-center gap-1">
@@ -28,7 +34,7 @@ function Header({ title }) {
       </div>
       <div className="flex gap-2 items-center">
         <p className="font-title font-bold text-subtitle hidden md:block">
-          ¡Hola, Juan!
+          ¡Hola, {user}!
         </p>
         <img src={avatar} alt="user-avatar" className="w-10 rounded-full" />
       </div>
