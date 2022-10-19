@@ -1,7 +1,7 @@
 import income_icon from "@/assets/icons/dashboard/income.svg"
 import { useForm } from "react-hook-form"
 
-const IncomeForm = () => {
+const IncomeForm = ({ movements, setMovements, setPostBalance }) => {
   const methods = useForm()
   const {
     handleSubmit,
@@ -25,13 +25,12 @@ const IncomeForm = () => {
       },
       body: JSON.stringify(userData),
     })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log("Ingreso Registrado")
-        }
-        return res.json()
+      .then(res => res.json())
+      .then(res => {
+        setMovements([...movements, res]);
+        setPostBalance(null);
       })
-      .catch((err) => console.log(err))
+      .catch(err => console.log(err))
   })
 
   return (

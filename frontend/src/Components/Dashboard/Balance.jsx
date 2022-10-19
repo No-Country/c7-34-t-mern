@@ -1,23 +1,10 @@
 import dataBalance from "@/assets/images/balance-data.svg"
 import subsBalance from "@/assets/images/balance-subs.svg"
-import { useEffect, useState } from "react"
+import { handleMovements } from "@/helpers/movements";
 
-function Balance({ setPostBalance }) {
-  const [movements, setMovements] = useState()
-  const user = JSON.parse(localStorage.getItem("userData"))._doc
+function Balance({ setPostBalance, user, movements }) {
+  const { expenses, incomes, balance } = handleMovements(movements);
 
-  useEffect(() => {
-    fetch(
-      `https://coinbookbackend-production.up.railway.app/balance/balance/${user._id}`,
-      {
-        method: "GET",
-        credentials: "same-origin",
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => setMovements(res))
-      .catch((err) => console.error(err))
-  }, [])
   return (
     <section className="flex flex-col gap-10 my-6 sm:my-10">
       <aside>
@@ -25,8 +12,12 @@ function Balance({ setPostBalance }) {
           <span className="flex items-center justify-start font-title font-bold tracking-wide text-title2 md:text-[2rem]">
             Balance:
           </span>
-          <span className="flex items-center justify-end font-title font-bold text-title3 md:text-title2 tracking-wide text-primary-base">
-            $ 15,300.28
+          <span className={`flex items-center justify-end font-title font-bold text-title3 md:text-title2 tracking-wide ${
+            balance > 0 
+            ? 'text-primary-base' 
+            : 'text-secondary-base'
+          }`}>
+            $ { balance }
           </span>
         </div>
       </aside>
@@ -35,13 +26,13 @@ function Balance({ setPostBalance }) {
           <article className="bg-white py-6 px-4 rounded-xl flex items-center w-32 md:w-40 gap-2">
             <img src={dataBalance} alt="balance-data" className="h-24" />
             <h2 className="hidden md:block font-title font-bold text-[3.5rem]">
-              2
+              { incomes.length }
             </h2>
           </article>
           <article className="bg-white py-6 px-4 rounded-xl flex items-center w-32 md:w-40 gap-2">
             <img src={subsBalance} alt="balance-subs" className="h-24" />
             <h2 className="hidden md:block font-title font-bold text-[3.5rem]">
-              0
+              { expenses.length }
             </h2>
           </article>
         </div>
@@ -61,7 +52,7 @@ function Balance({ setPostBalance }) {
           <tbody>
             {movements !== undefined
               ? movements.map((mov, i) => {
-                  const { _id, activity, category, amount, type } = mov
+                  const { _id, activity, category, amount, balance_type } = mov
 
                   return (
                     <tr
@@ -86,12 +77,12 @@ function Balance({ setPostBalance }) {
                         <div className="flex justify-end px-4">
                           <p
                             className={`${
-                              type === "ingreso"
+                              balance_type === "income"
                                 ? "text-primary-base"
                                 : "text-secondary-light"
                             } font-general font-bold tracking-wide text-headline xl:text-title3`}
                           >
-                            {type === "ingreso" ? "+ $ " : "- $ "}
+                            {balance_type === "income" ? "+ $ " : "- $ "}
                             {amount}
                           </p>
                         </div>
