@@ -26,7 +26,7 @@ const BalanceGraph = ({ movements }) => {
     ],
   }
   return (
-    <div className="w-64 xs:w-72 sm:w-96 lg:w-[25rem] xl:w-[30rem] lg:mt-8">
+    <div className="w-64 xs:w-72 sm:w-96 lg:w-[25rem] xl:w-[30rem] lg:mt-8 bg-white rounded-lg shadow-md p-2">
       <Line data={data} options={{ fill: true }} />
     </div>
   )
