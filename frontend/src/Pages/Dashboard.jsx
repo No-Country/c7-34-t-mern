@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Balance, UserLayout } from "@/Components"
 import BalanceModals from "@/Components/Dashboard/BalanceModals";
+import BalanceGraph from "@/Components/Dashboard/BalanceGraph";
 import { Auth } from "@/Utils"
 
 const Dasboard = () => {
@@ -34,6 +35,7 @@ const Dasboard = () => {
                 setMovements={setMovements}
               /> 
             : null }
+            <BalanceGraph movements={movements} />
         </div>
       </UserLayout>
     </Auth>
