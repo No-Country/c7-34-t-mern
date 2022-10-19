@@ -9,7 +9,6 @@ function ExpenseForm() {
     formState: { errors },
   } = methods
 
-
   const onSubmit = handleSubmit((data) => {
     const userID = JSON.parse(localStorage.getItem("userData"))._doc._id
     const userData = {
@@ -17,7 +16,7 @@ function ExpenseForm() {
       activity: data.activity,
       category: data.category,
       amount: -data.amount,
-      balance_type: "expense"
+      balance_type: "expense",
     }
     fetch("https://coinbookbackend-production.up.railway.app/balance/balance", {
       method: "POST",
@@ -33,9 +32,7 @@ function ExpenseForm() {
         return res.json()
       })
       .catch((err) => console.log(err))
-    console.log(data)
   })
-
 
   return (
     <>
