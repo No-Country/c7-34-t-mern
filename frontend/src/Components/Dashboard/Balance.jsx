@@ -1,6 +1,8 @@
 import dataBalance from "@/assets/images/balance-data.svg"
 import subsBalance from "@/assets/images/balance-subs.svg"
 import { handleMovements } from "@/helpers/movements";
+import {getSumByKey} from "@/helpers/getSumByKey"
+import { useEffect, useState } from "react"
 
 function Balance({ setPostBalance, user, movements }) {
   const { expenses, incomes, balance } = handleMovements(movements);
@@ -10,7 +12,7 @@ function Balance({ setPostBalance, user, movements }) {
       <aside>
         <div className="bg-white py-2 md:py-6 px-4 rounded-xl grid w-64 sm:w-[20rem] md:w-[25rem] gap-6">
           <span className="flex items-center justify-start font-title font-bold tracking-wide text-title2 md:text-[2rem]">
-            Balance:
+            Balance
           </span>
           <span className={`flex items-center justify-end font-title font-bold text-title3 md:text-title2 tracking-wide ${
             balance > 0 
@@ -54,42 +56,40 @@ function Balance({ setPostBalance, user, movements }) {
               ? movements.map((mov, i) => {
                   const { _id, activity, category, amount, balance_type } = mov
 
-                  return (
-                    <tr
-                      key={_id}
-                      className={`${
-                        i % 2 == 0
-                          ? "bg-indigo-100 border-x border-neutral-gray drop-shadow-lg"
-                          : "bg-white"
+                return (
+                  <tr
+                    key={_id}
+                    className={`${i % 2 == 0
+                        ? "bg-indigo-100 border-x border-neutral-gray drop-shadow-lg"
+                        : "bg-white"
                       } py-1`}
-                    >
-                      <td className="border-b border-gray-200 px-2">
-                        <div className="flex flex-col px-4 py-1 sm:py-0.5">
-                          <p className="font-general font-semibold text-footer xl:text-headline tracking-normal">
-                            {activity}
-                          </p>
-                          <p className="font-general font-semibold text-legend1 xl:text-footer text-gray-400 tracking-normal">
-                            {category}
-                          </p>
-                        </div>
-                      </td>
-                      <td className="border-b border-gray-200">
-                        <div className="flex justify-end px-4">
-                          <p
-                            className={`${
-                              balance_type === "income"
-                                ? "text-primary-base"
-                                : "text-secondary-light"
+                  >
+                    <td className="border-b border-gray-200 px-2">
+                      <div className="flex flex-col px-4 py-1 sm:py-0.5">
+                        <p className="font-general font-semibold text-footer xl:text-headline tracking-normal">
+                          {activity}
+                        </p>
+                        <p className="font-general font-semibold text-legend1 xl:text-footer text-gray-400 tracking-normal">
+                          {category}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="border-b border-gray-200">
+                      <div className="flex justify-end px-4">
+                        <p
+                          className={`${balance_type === "income"
+                              ? "text-primary-base"
+                              : "text-secondary-light"
                             } font-general font-bold tracking-wide text-headline xl:text-title3`}
-                          >
-                            {balance_type === "income" ? "+ $ " : "- $ "}
-                            {amount}
-                          </p>
-                        </div>
-                      </td>
-                    </tr>
-                  )
-                })
+                        >
+                          {balance_type === "income" ? "+ $ " : "- $"}
+                          {balance_type === "expense" ? -amount : amount}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                )
+              })
               : null}
           </tbody>
         </table>
