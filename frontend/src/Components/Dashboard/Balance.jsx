@@ -99,7 +99,7 @@ function Balance({ setPostBalance, user, movements }) {
             onClick={() => setPostBalance("expense")}
           >
             {" "}
-            -$ Añadir Gasto{" "}
+            - Añadir Gasto{" "}
           </button>
           <button
             className="rounded-2xl py-3 bg-primary-base hover:bg-primary-light text-white font-general font-semibold text-footer sm:text-headline w-28 sm:w-40"

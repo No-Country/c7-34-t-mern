@@ -29,6 +29,7 @@ const BalanceModals = ({
             ? <ExpenseForm  
                 movements={movements} 
                 setMovements={setMovements} 
+                setPostBalance={setPostBalance}
               /> 
             : null
           }

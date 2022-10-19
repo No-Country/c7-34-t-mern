@@ -1,7 +1,7 @@
 import expense_icon from "@/assets/icons/dashboard/expense.svg"
 import { useForm } from "react-hook-form"
 
-function ExpenseForm() {
+function ExpenseForm({ movements, setMovements, setPostBalance }) {
   const methods = useForm()
   const {
     handleSubmit,
@@ -25,11 +25,10 @@ function ExpenseForm() {
       },
       body: JSON.stringify(userData),
     })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log("Gasto Registrado")
-        }
-        return res.json()
+      .then((res) => res.json())
+      .then(res => {
+        setMovements([...movements, res]);
+        setPostBalance(null);
       })
       .catch((err) => console.log(err))
   })

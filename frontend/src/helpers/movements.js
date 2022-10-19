@@ -9,7 +9,7 @@ export const handleMovements = (movements) => {
     let incomes_sum = 0;
     incomes.map(income => incomes_sum += income.amount);
 
-    const balance = incomes_sum - expenses_sum;
+    const balance = incomes_sum + expenses_sum;
 
     return { expenses, incomes, balance }
 }
