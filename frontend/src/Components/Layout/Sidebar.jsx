@@ -12,9 +12,9 @@ function Sidebar() {
   }
 
   return (
-    <section className="w-20 hover:w-72 bg-white min-h-screen overflow-hidden hover:overflow-visible absolute z-10 transition-[width] duration-75 ease-[cubic-bezier(0.175, 0.885, 0.32, 1.275)]">
+    <aside className="hidden md:block w-20 hover:w-72 bg-white min-h-screen overflow-hidden hover:overflow-visible absolute z-10 transition-[width] duration-75 ease-[cubic-bezier(0.175, 0.885, 0.32, 1.275)]">
       <div className="flex flex-col gap-4 justify-center m-6 mx-4">
-        <aside className="flex gap-6">
+        <span className="flex gap-6">
           <img src={logo} alt="logo-cb" className="w-12" />
           <div className="flex gap-2">
             <span className="font-title font-semibold text-big_title tracking-wide text-primary-light whitespace-no-wrap">
@@ -24,8 +24,8 @@ function Sidebar() {
               Book
             </span>
           </div>
-        </aside>
-        <aside className="absolute top-20 flex flex-col justify-center gap-8 mt-4">
+        </span>
+        <div className="absolute top-20 flex flex-col justify-center gap-8 mt-4">
           {dashLinks.map((links) => {
             const { id, name, link, icon } = links
 
@@ -52,9 +52,9 @@ function Sidebar() {
               Cerrar sesión
             </h2>
           </button>
-        </aside>
+        </div>
       </div>
-    </section>
+    </aside>
   )
 }
 export default Sidebar

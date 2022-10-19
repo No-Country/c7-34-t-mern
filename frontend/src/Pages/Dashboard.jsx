@@ -25,7 +25,7 @@ const Dasboard = () => {
   return (
     <Auth>
       <UserLayout>
-        <div className="mx-auto my-10 max-w-7xl relative left-10 flex flex-col items-center lg:grid lg:grid-cols-2 lg:gap-20">
+        <div className="mx-auto my-10 max-w-7xl relative left-0 lg:left-10 flex flex-col items-center lg:grid lg:grid-cols-2 lg:gap-20">
           <aside>
             <Balance
               setPostBalance={setPostBalance}
@@ -41,7 +41,7 @@ const Dasboard = () => {
               />
             ) : null}
           </aside>
-          <aside className="grid gap-8">
+          <aside className="grid gap-[4.5rem]">
             <article className="hidden lg:flex items-center justify-between bg-white rounded-lg shadow-md">
               <div className="flex flex-col w-60 py-2 px-5 gap-8">
                 <span className="font-general font-bold text-title3">
