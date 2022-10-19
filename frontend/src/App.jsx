@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { Loader } from "./Components"
+import { LazyLoader } from "./Components"
 
 const Dashboard = lazy(() => import("@/Pages/Dashboard"))
 const Home = lazy(() => import("@/Pages/Home"))
@@ -11,7 +11,7 @@ const Error = lazy(() => import("@/Pages/Error"))
 function App() {
   return (
     <>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<LazyLoader />}>
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Home />} />
