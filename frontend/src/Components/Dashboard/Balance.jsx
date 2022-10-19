@@ -1,8 +1,6 @@
 import dataBalance from "@/assets/images/balance-data.svg"
 import subsBalance from "@/assets/images/balance-subs.svg"
 import { handleMovements } from "@/helpers/movements";
-import {getSumByKey} from "@/helpers/getSumByKey"
-import { useEffect, useState } from "react"
 
 function Balance({ setPostBalance, user, movements }) {
   const { expenses, incomes, balance } = handleMovements(movements);
@@ -83,7 +81,7 @@ function Balance({ setPostBalance, user, movements }) {
                             } font-general font-bold tracking-wide text-headline xl:text-title3`}
                         >
                           {balance_type === "income" ? "+ $ " : "- $"}
-                          {balance_type === "expense" ? -amount : amount}
+                          {amount}
                         </p>
                       </div>
                     </td>
