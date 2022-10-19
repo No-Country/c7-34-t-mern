@@ -49,7 +49,7 @@ function Form() {
 
   return (
     <aside>
-      <form onSubmit={onSubmit}>
+      <form autoComplete="off" onSubmit={onSubmit}>
         <div className="mb-6">
           <label className="text-footer font-semibold text-[#8E9093] tracking-wide">
             Email

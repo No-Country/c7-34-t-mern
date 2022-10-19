@@ -26,9 +26,9 @@ function ExpenseForm({ movements, setMovements, setPostBalance }) {
       body: JSON.stringify(userData),
     })
       .then((res) => res.json())
-      .then(res => {
-        setMovements([...movements, res]);
-        setPostBalance(null);
+      .then((res) => {
+        setMovements([...movements, res])
+        setPostBalance(null)
       })
       .catch((err) => console.log(err))
   })
@@ -39,6 +39,7 @@ function ExpenseForm({ movements, setMovements, setPostBalance }) {
         <img src={expense_icon} alt="expense" />
       </span>
       <form
+        autoComplete="off"
         onSubmit={onSubmit}
         className="flex flex-col gap-6 items-center justify-center mt-16"
       >
