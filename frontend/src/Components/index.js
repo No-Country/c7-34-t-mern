@@ -1,5 +1,6 @@
 export { default as Loader } from "./Common/Loader"
 export { default as Balance } from "./Dashboard/Balance"
+export { default as BalanceGraph } from "./Dashboard/BalanceGraph"
 export { default as BalanceModals } from "./Dashboard/BalanceModals"
 export { default as ExpenseForm } from "./Dashboard/ExpenseForm"
 export { default as IncomeForm } from "./Dashboard/IncomeForm"

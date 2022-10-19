@@ -16,7 +16,7 @@ const IncomeForm = ({ movements, setMovements, setPostBalance }) => {
       activity: data.activity,
       category: data.category,
       amount: data.amount,
-      balance_type: "income"
+      balance_type: "income",
     }
     fetch("https://coinbookbackend-production.up.railway.app/balance/balance", {
       method: "POST",
@@ -25,12 +25,12 @@ const IncomeForm = ({ movements, setMovements, setPostBalance }) => {
       },
       body: JSON.stringify(userData),
     })
-      .then(res => res.json())
-      .then(res => {
-        setMovements([...movements, res]);
-        setPostBalance(null);
+      .then((res) => res.json())
+      .then((res) => {
+        setMovements([...movements, res])
+        setPostBalance(null)
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
   })
 
   return (
@@ -39,6 +39,7 @@ const IncomeForm = ({ movements, setMovements, setPostBalance }) => {
         <img src={income_icon} alt="income" />
       </span>
       <form
+        autoComplete="off"
         onSubmit={onSubmit}
         className="flex flex-col gap-6 items-center justify-center mt-16"
       >
