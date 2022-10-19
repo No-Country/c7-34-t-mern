@@ -36,15 +36,15 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "user": "6334d7285fd8cb18d0a2a3d3",
-  "activity": "netflix",
-  "category": "Servicio",
-  "amount": "7",
-  "balance_type": "expense"
+  "user": "63360379061e5b283644f1cd",
+  "activity": "Salario",
+  "category": "El play5",
+  "amount": "1000",
+  "balance_type": "income"
 }
 
 ### Get user income
-GET http://localhost:4000/test/balance/6334d7285fd8cb18d0a2a3d3 HTTP/1.1
+GET http://localhost:4000/test/balance/63360379061e5b283644f1cd HTTP/1.1
 
 
 ### Delete an income

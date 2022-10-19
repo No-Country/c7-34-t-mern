@@ -8,8 +8,30 @@ const IncomeForm = () => {
     register,
     formState: { errors },
   } = methods
+
   const onSubmit = handleSubmit((data) => {
-    console.log(data)
+    const userID = JSON.parse(localStorage.getItem("userData"))._doc._id
+    const userData = {
+      user: userID,
+      activity: data.activity,
+      category: data.category,
+      amount: data.amount,
+      balance_type: "income"
+    }
+    fetch("https://coinbookbackend-production.up.railway.app/balance/balance", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log("Ingreso Registrado")
+        }
+        return res.json()
+      })
+      .catch((err) => console.log(err))
   })
 
   return (
@@ -29,6 +51,7 @@ const IncomeForm = () => {
             type="text"
             className="h-10 w-full sm:w-80 px-2 font-general font-normal tracking-wide text-subtitle border border-gray-400 border-solid rounded-md placeholder:pl-52 focus:outline-primary-base"
             placeholder="Identificador"
+            {...register("activity")}
           />
         </div>
         <div className="w-full flex flex-col justify-center items-center xs:items-start">
@@ -39,6 +62,7 @@ const IncomeForm = () => {
             type="text"
             className="h-10 w-full sm:w-80 px-2 font-general font-normal tracking-wide text-subtitle border border-gray-400 border-solid rounded-md placeholder:pl-44 focus:outline-primary-base"
             placeholder="Predeterminado"
+            {...register("category")}
           />
         </div>
         <div className="w-full flex flex-col justify-center items-center xs:items-start">
@@ -49,6 +73,7 @@ const IncomeForm = () => {
             type="number"
             className="h-10 w-full sm:w-80 px-2 font-general font-normal tracking-wide text-subtitle border border-gray-400 border-solid rounded-md placeholder:pl-44 focus:outline-primary-base"
             placeholder="Cuánto adquiriste"
+            {...register("amount")}
           />
         </div>
         <button className="mt-8 sm:mt-12 bg-primary-base rounded-md w-full py-2 px-4 sm:py-3 sm:px-5 text-white font-general font-semibold text-headline sm:text-title3">
