@@ -68,10 +68,10 @@ function Balance({ setPostBalance, user, movements }) {
                   >
                     <td className="border-b border-gray-200 px-1">
                       <div className="flex flex-col px-2 py-1 sm:py-3 w-[180px] sm:w-full">
-                        <p className="font-general font-semibold text-footer xl:text-headline tracking-normal truncate">
+                        <p className="font-general font-semibold text-footer md:text-headline xl:text-title3 tracking-normal truncate">
                           {activity}
                         </p>
-                        <p className="font-general font-semibold text-legend1 xl:text-footer text-gray-400 tracking-normal">
+                        <p className="font-general font-semibold text-legend1 md:text-footer xl:text-subtitle text-gray-400 tracking-normal">
                           {category}
                         </p>
                       </div>
