@@ -1,16 +1,26 @@
 import avatar from "@/assets/images/Avatar.svg"
 import { useEffect, useState } from "react"
 import { TbGridDots, TbBell, TbMessage, TbSearch } from "react-icons/tb"
+import { SidebarMobile } from ".."
 
 function Header({ title }) {
   const [user, setUser] = useState("random")
+  const [openSidebar, setOpenSidebar] = useState(false)
+
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("userData"))._doc.name)
   }, [])
 
   return (
-    <header className="bg-indigo-100 flex items-center justify-center py-8 px-[5%] gap-[5%] sm:px-[10%] sm:justify-around lg:gap-2 relative left-12 md:left-10 h-20 md:h-24">
-      <div className="flex items-center gap-1">
+    <header className="bg-indigo-100 flex items-center justify-between py-8 px-[5%] gap-[5%] sm:px-[10%] md:justify-around lg:gap-2 relative left-0 md:left-8 h-20 md:h-24 shadow-sm">
+      <div className="flex items-center gap-6">
+        {openSidebar ? <SidebarMobile setOpen={setOpenSidebar} /> : null}
+        <button
+          className="cursor-pointer md:hidden"
+          onClick={() => setOpenSidebar(!openSidebar)}
+        >
+          <TbGridDots className="w-6 h-6" />
+        </button>
         <h2 className="hidden sm:block font-general font-semibold text-title1 lg:text-big_title">
           {title}
         </h2>
@@ -31,8 +41,8 @@ function Header({ title }) {
           <TbMessage className="text-white w-6 h-6 hover:text-black" />
         </span>
       </div>
-      <div className="flex gap-2 items-center">
-        <p className="font-title font-bold text-subtitle hidden md:block">
+      <div className="flex gap-3 items-center">
+        <p className="font-title font-semibold xl:font-bold text-subtitle hidden md:block">
           ¡Hola, {user}!
         </p>
         <img src={avatar} alt="user-avatar" className="w-10 rounded-full" />
