@@ -20,10 +20,10 @@ function TitleForm() {
         </p>
       </div>
       <span className="flex flex-col items-center gap-4 w-full">
-        <button className="flex justify-center items-center gap-4 font-normal font-general text-legend1 rounded-md shadow-xl bg-white w-60 md:w-[20rem] py-1">
+        {/* <button className="flex justify-center items-center gap-4 font-normal font-general text-legend1 rounded-md shadow-xl bg-white w-60 md:w-[20rem] py-1">
           <FcGoogle fontSize="1.5rem" />
           Acceder con una cuenta de google
-        </button>
+        </button> */}
         <div className="relative flex items-center py-5 w-full">
           <span className="flex-grow border-t border-gray-400"></span>
           <p className="flex-shrink mx-4 text-black font-semibold">Or</p>
