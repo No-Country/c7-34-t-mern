@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function BannerText() {
   return (
     <section className="flex flex-col justify-center items-start sm:items-left gap-10 px-8 md:px-0 pr-12 md:pr-20 ">
@@ -14,12 +16,12 @@ function BannerText() {
         <b> te ayudamos</b>
       </article>
       <div>
-        <a
-          href=""
+        <Link
+          to={"/register"}
           className="bg-primary-light px-4 py-3 rounded-md shadow-xl text-white font-general font-semibold text-title3"
         >
           ¡Empieza ahora!
-        </a>
+        </Link>
       </div>
     </section>
   )
