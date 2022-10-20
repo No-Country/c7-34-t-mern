@@ -58,7 +58,7 @@ Si quieres correr el proyecto en un entorno local puedes hacerlo con los siguien
 
 ## Equipo de desarrollo
 ### Frontend:
-- 🍉 [Miguel Briseño](https://github.com/mikejbp)
+- 🥑 [Miguel Briceño](https://github.com/mikejbp)
 - 🍉 [Guillermo](https://github.com/Hai5edfm)
 
 ### Backend
