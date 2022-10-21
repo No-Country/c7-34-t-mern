@@ -65,4 +65,4 @@ Si quieres correr el proyecto en un entorno local puedes hacerlo con los siguien
 - 🍍 [Jhonny Calvo](https://github.com/Bluejhonny)
 
 ### UX/UI
-- 🍓 Christian Suarez
+- 🍓 [Christian Suarez](https://www.behance.net/cristiansuarez5)
