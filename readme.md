@@ -33,7 +33,7 @@ Desplegado en **Railway**
 
 <!-- GETTING STARTED -->
 
-### Corre el proyecto (Frontend) <img src="https://user-images.githubusercontent.com/79668074/196853599-fd1a0819-7ef9-4d1b-9495-fad7fdf98784.png" width="620" align="right" />
+### Corre el proyecto (Frontend) <img src="https://user-images.githubusercontent.com/79668074/196853599-fd1a0819-7ef9-4d1b-9495-fad7fdf98784.png" width="520" align="right" />
 
 Si quieres correr el proyecto en un entorno local puedes hacerlo con los siguientes pasos:
 
